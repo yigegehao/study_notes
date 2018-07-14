@@ -1,0 +1,46 @@
+用户权限管理
+
+创建用户
+1.直接使用root用户在mysql.user表中插入记录
+2.专门创建用户的sql指令
+基本语法
+create user '用户名'@'主机地址' identified by '密码'
+用户名（user）：代表用户的用户名
+主机地址（host）：代表允许访问的客户端(ip地址或者主机地址)
+%代表所有用户都可以访问
+
+删除用户
+drop user 用户名@host
+
+
+修改用户密码
+基本语法
+1.set password for 用户=password("新的密码")
+2.update mysql.user set password=password("新密码") 
+where user="" and host=""
+
+权限管理分类
+1.数据权限：增删改查
+2.结构权限：create/drop
+3.管理权限：create user/grant/revoke
+
+授予权限
+grant 权限列表 on 数据库.表名 to 用户
+all privileges代表所有权限
+数据库.表名 单表
+数据可.* 全库
+
+取消权限
+revoke 权限列表/all privileges on 数据库[.表] from 用户
+
+刷新权限 同步到对应表中
+flush privileges;
+
+密码丢失解决方案
+1.停止服务
+2.重新启动服务：mysqld --skip-grant-tables
+很危险，所有用户都是root权限
+3.任意用户登陆
+4.修改密码
+5.赶紧关闭服务器，重启服务
+
