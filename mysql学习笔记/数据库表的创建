@@ -1,0 +1,49 @@
+数据库表的创建
+-创建数据表
+create table 数据库名.表名(
+	字段名  类型 约束条件
+);
+--表选项
+Engine:存储引擎，mysql提供的具体存储数据的方式，默认有innodb
+Charset:字符集，只对自己表有效
+Collate：校对集
+
+-复制已有的表结构
+只复制结构，不复制数据
+create table 新表名 like 表名;
+
+-显示数据表
+--显示所有表 show tables;
+
+-显示表结构
+Describe 
+Desc
+show columns from 
+
+-显示表创建语句
+此语句被加工了
+show create table 表名;
+show create table 表名\Gs
+
+-修改表选项
+alter table 表名 表选项=？
+如果数据库已经确定了，里面有很多数据，不要轻易修改表选项
+
+-修改表结构
+--修改表名：rename table student to my_student;
+--新增字段: alter table 表名 add [column] 字段名 类型 约束 [first,after];
+默认加到表的最后面
+--字段位置
+First:在某个字段之前
+After:放在某个具体的字段之后
+--修改字段名
+alter table 表名 change 旧字段名 新字段名 类型;
+--修改字段类型
+alter table 表名 modify 字段名 类型名
+--删除字段
+alter table 表名 drop 字段名;
+
+-删除表结构
+drop table 表名,..;
+
+

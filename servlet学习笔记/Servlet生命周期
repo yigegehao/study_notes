@@ -1,0 +1,9 @@
+Servlet生命周期
+-init() 初始化 只调用一次
+
+-service() 每调用一次会产生一个线程，处理请求并响应，会调用doGET,doPost,doPut,doDelete
+--doGet 接受URL或HTML表单
+--doPost HTML表单
+
+-destroy() 终止 只调用一次
+

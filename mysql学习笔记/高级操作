@@ -1,0 +1,172 @@
+高级操作
+
+-插入
+insert into table1 values(),(),();
+-主键冲突
+--主键冲突更新
+insert into table1 values() on dumplication key update 字段=新值
+--主键冲突替换
+replace into table1 values()
+--蠕虫复制 一分为二，成本增加
+insert into table1 select * from table2;
+作用：
+测试表的压力和效率
+要注意主键冲突
+
+
+-更新数据 通常是跟随条件更新
+1.update table1 set 字段名=新值 where 判断条件
+2.如果没有条件是全表更新，limit来限制数量
+
+
+-删除数据
+1.删除数据的时候尽量不要全部删除，应该使用where进行判定
+2.删除数据的时候可以使用limit来限制数量
+delete无法重置auto_increment
+Truncate 可以重置 ->drop  ->create
+
+-查询数据
+完整的查询指令
+Select select选项 字段列表 from 数据源 where 条件 group by 分组 having 条件 order by 排序 limit 限制;
+
+--select选项
+All
+distinct
+
+--字段选项
+别名
+name name1
+name as name1
+
+--数据源 from
+符合一个符合二维表结构的数据即可
+---字段表名
+---多表数据 from 表1，表2
+结果：两张表的记录数相乘，字段数拼接
+本质：笛卡儿积，除了给数据库造成压力，没有其它压力
+
+--动态数据 
+from 后面跟的数据不是一个实体表，而是从表中查询得到的二维表
+select * from (select * from table1) as 别名
+
+
+--where子句
+数据源：从磁盘处获取所有记录
+通过运算符进行结果比较判断
+
+--group by
+根据指定的字段将数据进行分组，目标为了统计
+查询结果只会保存每组的第一条记录
+---统计
+利用一些统计函数
+count
+avg
+sum
+max
+min
+Group concat 将分组中字段进行拼接
+
+--多分组
+将数据按照某个字段进行分组后，对已分组的数据再次分组
+group by 字段1，字段2..
+先按照字段1分组，然后...
+
+--分组排序
+默认有排序，升序
+group by 字段1[asc|desc]，字段2..
+
+--回溯统计
+group by 字段1[asc|desc]，字段2.. with rollup
+
+
+--Having子句
+Having的本质和where一样，是用来进行数据条件筛选
+
+Having是在group by后 进行判断
+where不能使用聚合函数，聚合函数是用在分组中
+别名是数据进入内存中才有
+
+强调：having实在gourp by之后，
+group by是在where之后
+where的时候表示将数据从磁盘拿到了内存
+where之后的所有操作都是内存操作
+
+--Order by子句
+根据校对规则对数据进行排序
+没有条件限制
+基本语法：order by 字段1[asc|desc],字段2[asc|desc];
+
+--Limit子句
+限制数量
+
+分页 指定区间
+limit offset,length
+
+--运算符
+between a and b 
+闭区间 a<b
+and
+or 
+not 
+in(a,b,c)
+is  专门用来判断字段是否为NULL的运算符 is null/is not null
+like 模糊匹配字符串 单个字符_ 多个字符%
+
+--联合查询
+将多个查询的结果合并到一起，字段数不变，多个查询的记录合并
+1.将同一张表中不同的结果合并到一起展示
+2.最常见：在数据量大的情况下，会对表进行分表操作
+需对每张表进行部分数据统计，将数据存放到到一起显示
+
+---基本语法
+select 语句
+union [union 选项]
+select 语句
+
+Union选项与select选项一样:默认选项distinct
+all
+distinct
+
+特点：
+理论上只要保证字段数一样，不需要每次拿到的数据对应的字段类型一致
+永远只把保留第一个select语句对应的字段名字
+
+---使用order by
+select语句必须用括号括起来
+生效：必须配合limit
+
+--连接查询
+不同表之间进行连接的查询
+---分类
+
+----交叉连接：笛卡儿积
+表1 cross join 表2
+
+----内连接
+1.从一张表中取出一条记录，然后去另外一张表中进行匹配
+2.利用匹配条件匹配
+2.1匹配到：保留，继续向下匹配
+2.2匹配失败：向下继续，如果全表匹配失败，结束
+表1 [inner] join 表2 [on]
+where 与 on 效果一样
+
+----外连接：左连接，右连接
+outer join
+按照某一张表作为主表（表中所有记录都会保留），去连接另外一张表
+1.确定连接主表 left join 左边为主表 right join	右边为主表
+2.拿主表的每一条记录，去匹配从表
+3.如果满足匹配条件：保留
+4.如果主表记录在从表中一条都没匹配成功
+也保留记录，从表对应的字段为null
+非常常用的一种获取数据的方式
+
+----自然连接
+select * from b1 join b2;
+
+--using关键字
+在连接查询中用来代替对应的on关键字，进行条件匹配
+原理
+1.在连接查询时，使用on的地方用using代替
+2.使用using的前提是对应两张表连接的字段同名
+3.使用using关键字，对应的同名字段只会保留一个
+

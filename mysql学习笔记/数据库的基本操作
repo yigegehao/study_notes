@@ -1,0 +1,29 @@
+数据库的基本操作：
+1.----创建数据库----
+create database mydatbase;
+-库选项：数据库的相关属性
+--字符集：charset字符集，代表当前数据库下所有表存储的数据默认指定的字符集
+--校对集：collate校对集
+
+2.----显示数据库----
+-显示所有数据库：show databases;
+--information_schema:保存数据库所有的结构信息(表，库)
+--mysql:权限关系
+--performance_schema:效率库
+--test:测试(空库)
+
+-显示部分数据库：show database like '匹配模式'
+--查看以my开头的数据库:show database like "my%";
+
+-显示数据库的创建语句
+show create database mydatabase;
+
+3.----选择数据库----
+use 数据库名字
+
+4.----修改数据库----
+-修改数据库字符集
+alter database 数据库名 charset=字符集
+
+5.----删除数据库----
+drop database 数据库名

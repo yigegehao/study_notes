@@ -1,0 +1,11 @@
+SQL分类:
+1.数据查询语言(DQL):专门用于查询数据
+select
+2.数据操作语言(DML):专门用于写数据
+update,delete,insert
+3.事务处理语言(TPL):专门用于事务安全处理
+transaction,commit,rollback
+4.数据控制语言(DCL):专门用于权限管理
+grant/revoke
+5.数据定义语言(DDL):专门用于结构管理
+create/drop/alter

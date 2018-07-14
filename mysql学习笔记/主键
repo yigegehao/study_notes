@@ -1,0 +1,23 @@
+主键
+
+-两种增加主键的方式
+1.create table my_pri1(
+	username varchar(10) primary key
+)charset utf8;
+
+2.create table my_pri2(
+	username varchar(10),
+	primary key(username)
+)
+
+-表后增加
+alter table 表名 add primary key(指定字段) 
+
+-删除主键
+alter table 表名 drop primary key;
+
+-复合主键
+
+-主键分类
+业务主键：主键所在的字段具有业务意义(学生ID，课程ID)
+逻辑主键：自然增长的整型（应用广泛）

@@ -1,0 +1,9 @@
+jsp生命周期
+
+-编译阶段 jsp->servlet
+-初始化阶段  jspInit()
+加载jsp对应的servlet类，创建其实例，并调用它的初始方法
+-执行阶段  _jspService()
+调用与jsp相对应的servlet实例的服务方法
+-销毁阶段	jspDestory()
+调用与jsp对应的servlet实例的销毁方法

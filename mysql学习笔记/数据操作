@@ -1,0 +1,24 @@
+数据操作
+-插入数据
+insert into 表名(..) values(..);
+
+-删除数据
+delete from 表名 where ..;
+
+-更新操作
+update 表名 set ..;
+
+-告知mysqld字符集
+set name 字符集
+mysql.exe 与 mysqld.exe之间的处理关系
+客户端传入数据给服务端:client
+服务端返回数据给客户端:server
+客户端与服务端之间的连接：collection
+Set name 字符集的本质，一次性打通三层字符集
+
+-查看系统保存的三种关系处理字符集
+show variables like 'character_set%'
+--修改变量set 变量=字符集
+Set character_set_client=gbk;//为了让服务器识别客户端传来的数据
+Set character_set_connection=gbk;//跟好的帮助客户端与服务端之间进行字符集转换
+Set character_set_results=gbk;//为了告诉客户端服务端所有的返回的数据的字符集

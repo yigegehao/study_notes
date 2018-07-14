@@ -1,0 +1,21 @@
+自动增长:主键才能自动增长
+
+-原理
+1.系统中有维护一组数据，用于保存当前使用了自动增长属性的字段，
+记住当前对应的数据值，再给定一个指定的步长
+2.当用户插入时，原始值加步长
+3.自动增长的触发，没有指定
+auto_increment
+
+-一张表最多有一个自增长
+
+-自增长的修改
+alter table table1 auto_increment = 10;
+
+-删除自动增长
+alter table table1 modify id int;
+
+-增加自增长
+alter table table1 modify id int auto_increment;
+
+-不能将auto_increment的大值改为小值

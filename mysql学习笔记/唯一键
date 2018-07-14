@@ -1,0 +1,22 @@
+唯一键
+
+-unique key:用来保证对应字段中的数据唯一
+--唯一键可有多个
+--可以为null
+--是索引的一种
+
+--创建
+1.create table table1(a int unique)
+2.create table table1(
+a int unique,
+unique key(a)
+)
+3.alter table table1 add unique key(a);
+
+--系统会给唯一键自动指定一个名字
+
+--删除唯一键
+alter table table1 drop index;
+
+--修改唯一键
+先删除后增加
