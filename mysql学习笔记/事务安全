@@ -1,0 +1,39 @@
+事务安全
+
+事务概念：事务时访问并可能更新数据库中各种数据项的一个
+程序执行单元
+
+事务基本原理
+mysql允许将事务统一进行管理（存储引擎INNODB）
+
+事务mysql中通常是自动提交的，但是也可以使用手动事务
+
+--自动事务--
+autocommit
+查看是否开启自动事务
+show variables like 'autocommit';
+关闭自动事务
+Set autocommit = off;
+
+一旦自动事务关闭
+commit:提交
+rollback：回滚
+
+
+--手动事务--
+1.开启事务 start transactin
+2.事务处理
+3.事务提交 commit/rollback
+
+回滚点
+savepoint
+增加回滚点：savepoint 回滚点名字
+回到回滚点：rollbadk to 回滚点名字
+如果回到了前面的位置就不能回到后面的位置了
+
+----事务四个特性-----
+acid
+原子性(atomicity)
+一致性(consistency) 所有事务处理操作一次性修改，要么不修改
+隔离性(isolation) 使用主键：隔离行 反之：整表隔离
+持久性(durability)

@@ -1,0 +1,12 @@
+视图
+
+--创建视图
+本质是SQL指令 虚拟表
+基本语法：create view 视图名字 as select指令
+
+--修改视图
+alter view 视图名字 as 新的select指令
+
+--删除视图
+drop view 视图名字
+

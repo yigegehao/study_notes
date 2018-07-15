@@ -14,7 +14,7 @@ alter talbe 从表 add foreign key(外键字段) references 主表(主键)
 --修改&删除外外键
 外键不允许修改，只能先删除后增加
 alter table 从表 drop foreign key 外键名字;
-外键创建后会自动增加一个索引，但是删除外键只会删除自己
+外键创建后会自动增加一个索引，但是删除外键只会删除自己的索引
 
 MUL：多索引
 
@@ -22,3 +22,17 @@ MUL：多索引
 1.类型完全一致
 2.基本属性也要相同
 3.如果在表后增加外键，对数据有一定要求
+4.外键只能使用innodb存储引擎，myisam不支持
+
+
+--外键的约束模式
+基本语法
+add foreign key[外键字段] feferences 主表[主键] on 约束模式
+1.district：严格模式，默认
+2.cascade：级联模式，一起操作 主表变化，从表数据跟着变化
+3.set null 置空模式，主表变化，从表对应字段设置为空（外键字段允许为空）
+
+常用约束模式
+on update cascade,on delete set null
+
+作用 保证数据的完整性

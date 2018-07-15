@@ -1,0 +1,22 @@
+mybatis开发dao方法
+
+-SqlSesion使用范围
+
+
+--原始dao开发方法（dao接口和dao实现类）
+存在大量模板方法
+调用SqlSession方法时将statement的id硬编码了
+SqlSession中的方法变量为泛型，编译时不报错，不利于程序员开发
+
+--mapper代理方法
+编写mapping映射文件
+编写mapper接口 遵循开发规范
+mybatis可以自动生成mapper接口实现类代理对象
+
+开发规范
+1.mapper文件 实体类名+Mapper.xml
+2.namespace = mapper接口全限定类名
+3.mapper.java接口中的方法与mapper文件中statement的id一致
+4.mpapper.java接口中的方法输入了参数类型和mapper.xml中的paramterType指定的类型一致
+5.mapper.java接口中方法的返回类型和mapper.xml的resultType一致
+

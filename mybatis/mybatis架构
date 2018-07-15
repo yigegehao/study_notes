@@ -1,0 +1,17 @@
+mybatis架构
+
+-mybatis是什么
+一个持久层框架kua
+通过映射方式，自由灵活生成（半自动化）满足需要的sql语句
+
+-配置文件
+SqlMapConfig.xml(全局配置文件)
+配置数据源，事务，mybatis运行环境
+配置映射文件
+mapper.xml
+
+SqlSessionFactory(会话工厂)
+SqlSession(会话) CRUD操作
+Executor(执行器) 操作数据库
+mappedStatement(底层封装对象)
+对操作数据库存储封装，SQL语句，输入参数，输出结果类型
