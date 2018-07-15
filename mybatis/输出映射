@@ -1,0 +1,16 @@
+输出映射
+
+--resultType
+查询出来的字段名必须和属性名一致
+才能映射成功
+
+--resultMap
+查询出来的列名和属性名不一致
+通过它来映射
+1.定义resultMap
+<resultMap type="" id="id名">
+	<id column="" property=""/>
+</resultMap>
+2.使用
+<select id="" parameterType="" resultMap="id名">
+</select>
