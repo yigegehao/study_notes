@@ -1,0 +1,31 @@
+流程结构
+
+if分支
+1.在select查询当做一种条件来进行判断
+if(条件,为真结果，为假结果)
+
+2.在复杂语句块中
+if 条件表达式 then
+	满足条件要执行的语句
+End if;
+
+--复合语法--
+if 条件表达式 then
+	满足条件要执行的语句
+Else
+	不满足条件要执行的语句
+	可以嵌套
+End if;
+
+--while循环--
+while 条件 do
+	要循环执行的代码
+End while;
+
+--结构标识符--
+标志名字:while 条件 do
+	要循环执行的代码
+End while;
+Iterate（相当于continue）
+Leave（相当于break）
+

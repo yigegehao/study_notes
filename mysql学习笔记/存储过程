@@ -1,0 +1,49 @@
+存储过程
+
+一次编译后不再需要编译
+
+与函数的相同点
+1.sql语句的集合
+2.一次编译，后续执行
+
+不同点
+1.函数function 过程procedure
+2.函数有返回值 过程没有返回值
+3.函数可以在select语句中使用
+  过程不能 
+
+--创建过程--
+create procedure 过程名字[参数列表]
+begin
+	过程体
+end
+结束符
+
+--查看过程--
+show procedure status
+show create procedure my_pro
+
+--调用过程--
+call 过程名（）
+
+--删除过程
+drop procedure 过程名
+
+-------------------注释-------------------
+-- 有一个空格
+
+delimiter $$
+create procedure my_pro4()
+begin
+	declare i int default 1;
+	set @sum=0;
+
+	while i<=100 do
+		set @sum = @sum+i;
+		set i = i+1;
+	end while;
+
+	select @sum;
+end
+$$
+delimiter ;

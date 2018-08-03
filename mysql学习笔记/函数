@@ -1,0 +1,40 @@
+函数
+
+系统函数
+
+自定义函数
+--修改语句结束符
+delimiter $$
+create function my_func() returns int
+begin 
+	return 10;
+end
+--结束
+$$
+--修改语句结束符
+delimiter ;
+
+--查看函数
+show function status;
+--查看函数创建语句
+show create function my_func 
+--删除函数
+drop function 函数名
+
+只有当前用户可以用
+其它用户可以看到但不能用
+函数内部不能使用select
+唯一可用select 字段 into @变量
+
+delimiter $$
+create function add_fun(a int,b int) returns int
+return a+b;
+$$
+delimiter ;
+
+delimiter $$
+create function add_fun() returns int
+begin
+	return 10;
+end
+$$
