@@ -1,0 +1,37 @@
+系统权限管理
+
+-三个默认用户
+sys
+system
+scott
+
+-自定义用户
+--管理员登陆
+sqlplus / as sysdba
+--创建用户
+create user xy identified by xy
+--给用户授权
+grant create session to xy
+grant create table to xy
+grant unlimited tablespace to xy
+--撤销权限
+revoke create table from xy
+--查询权限信息
+select * from user_sys_privs
+
+-删除用户
+drop user xy （cascade）
+
+-对象权限
+--授予对象权限
+grant select on mytab to lisi
+grant all on mytab to lisi
+
+--撤销对象权限
+revoke select on mytab from lisi
+
+--对象权限可以更新到列
+grant update(name) on mytabl to lisi
+grant insert(name) on mytable to lisi
+注意：查询和删除不能控制到列
+

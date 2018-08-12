@@ -1,0 +1,28 @@
+out参数
+
+--查询某个员工姓名 月薪 和职位
+create or replace procedure queryempinform(eno in number
+										   pename out varchar2,
+										   psal   out number,
+										   pjob	  out varchar2)
+as
+begin
+--得到该员工的姓名 月薪和职位
+	select ename,sal,empjob into pename,psal,pjob from emp where empno=eno;
+end;
+
+--out参数中使用光标
+---包头
+CREATE OR REPLACE PACKAGE MYPACKAGE AS
+	type empcursor is ref cursor;
+	procedure queryEmpList(dno in number,empList out empcursor);
+END MYPACKAGE
+
+
+---包体
+CREATE OR REPLACE PACKAGE BODY MYPACKAGE AS
+	procedure queryEmpList(dno in number,empList out empcursor) as
+	BEGIN
+		open empList for select * from emp where deptno=dno;
+	END queryEmpList
+END MYPACKAGE;
