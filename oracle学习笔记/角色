@@ -1,0 +1,11 @@
+角色
+:权限的集合
+
+-创建角色
+create role myrole
+
+-给角色授权
+grant create session to myrole
+
+-给用户授权
+grant myrole to c

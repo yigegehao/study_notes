@@ -1,0 +1,9 @@
+权限的传递
+
+管理员
+grant alter any table to a with admin/grant option
+用户a
+grant alter any table to b with admin option
+用户b
+
+撤销用户a的权限，b还是有

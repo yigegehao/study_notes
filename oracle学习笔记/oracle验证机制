@@ -1,0 +1,21 @@
+oracle验证机制
+
+-操作系统验证
+-密码文件验证
+-数据库验证
+
+linux下Oracle的启动过程
+lsnrctl start
+sqlplus sys/oracle as sysdba
+startup
+
+windows下oracle的启动过程
+lsnrctl start
+oradim -starup -sid orcl
+
+-用户加锁
+alter User 用户名 Account Lock
+-用户解锁
+alter User 用户名 Account Unlock
+-用户口令即刻失效
+alter User 用户名 Password Expire
