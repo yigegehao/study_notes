@@ -1,3 +1,10 @@
 ---linux查看端口占用情况
 1.lsof -i:8080
 2.netstat -tunlp | grep 8080
+
+---拷贝指定文件下的所有文件
+rsync -tr /aaa /bbb
+
+---清空文件
+cp /dev/null /home/sso/linux64/tomcat/logs/catalina.out
+> 文件名
