@@ -8,3 +8,8 @@ rsync -tr /aaa /bbb
 ---清空文件
 cp /dev/null /home/sso/linux64/tomcat/logs/catalina.out
 > 文件名
+
+---定时任务
+crontab -e 分/每隔多少分钟执行一次 时/每隔多少小时执行一次 dayOfMonth monthOfYear dayOfWeek 脚本位置
+crontab -l 显示所有定时任务
+

@@ -1,0 +1,14 @@
+python的数据类型
+
+1.Booleans:True=1,False=0
+2.Numbers:整数,浮点数,分数,复数
+3.String:Unicode字符串序列
+4.Bytes:字节数组
+5.Lists:列表
+6.Tuples:元组
+7.Sets:集合
+8:Dictionaries:字典
+
+
+type(1)
+isinstance(1,int)
