@@ -13,3 +13,10 @@ cp /dev/null /home/sso/linux64/tomcat/logs/catalina.out
 crontab -e 分/每隔多少分钟执行一次 时/每隔多少小时执行一次 dayOfMonth monthOfYear dayOfWeek 脚本位置
 crontab -l 显示所有定时任务
 
+chkconfig:主要用来更新和查询系统服务的运行级信息
+注意:chkconfig不是立即自动禁止或激活一个服务,它只是简单的
+改变了符号连接
+
+diff -urNa 新文件 旧文件
+
+

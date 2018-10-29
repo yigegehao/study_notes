@@ -1,0 +1,54 @@
+rootfs:根文件系统
+
+FHS:Linux
+
+/boot:系统启动相关额文件,如内核,initrd,以及grub(bootLoader)
+/dev:设备文件
+	-块设备:随机访问,数据块
+	-字符设备:线性访问,以字符为单位
+	-设备号:主设备号(major)和次设备号(minor)
+/etc:配置文件
+/home:用户的家目录
+/root:管理员的家目录
+/lib:库文件
+	-静态库:.a
+	-动态库:.so(shared object)
+	-/lib/modules:内核模块文件
+/media:挂载点目录-移动设备
+/mnt:挂载额外的临时文件系统
+/opt:可选目录,第三方程序额安装目录
+/proc:伪文件系统,内核映射文件
+/sys:伪文件系统,跟硬件设备相关的属性映射文件
+/tmp:临时文件,/var/tmp
+/var:可变化的文件
+/bin:可执行文件,用户命令
+/sbin:管理命令
+
+/usr:universal shared read-only 只读文件
+
+--文件管理
+--目录管理
+ls cd pwd mkdir cp mv
+
+--运行程序
+--设备管理
+--软件管理
+--进程管理
+--网络管理
+
+--文本处理
+cat more less head tail cut sort uniq grep awk
+--文本排序
+sort
+--文本统计
+wc
+
+--用户管理
+useradd userdel usermod passwd chsh chfn finger id change
+
+--组管理
+groupadd groupdel groupmod gpasswd
+
+--权限管理
+chown  chgrp chmod umask
+

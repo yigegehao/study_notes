@@ -1,0 +1,11 @@
+通过异常处理错误
+--发生异常,程序将不能沿着其正常的路径走下去
+
+
+-Throwable
+	--Error:编译时和系统错误
+	--Exception:程序员关心的
+	--RuntimeException:不需要程序员处理,java虚拟机自动抛出
+
+-finally
+当涉及break和continue,return语句时,finally语句也会得到执行

@@ -1,0 +1,53 @@
+---requests模块---
+requests.get(url)
+requests.post(url,data={请求体的字典})
+
+---response的方法
+response.content.decode()
+response.content.decode("gbk")
+response.text
+
+---发送带header的请求
+为了模拟浏览器,获得和浏览器一摸一样的内容
+header = {
+"Accept":"*/*",
+"Accept-Encoding":"gzip, deflate, br",
+"Accept-Language":"zh-CN,zh;q=0.9",
+"Connection":"keep-alive",
+"Content-Length": "180",
+"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36"
+}
+
+---使用超时参数
+requests.get(url,headers=headers,timeout=3) #3秒内必须返回响应,否则报错
+
+---cookie
+1.在headers中添加
+2.requests.get(url,cookies={})
+3.session = requests.session()
+session.post(url)
+
+---retrying模块---
+3次全部报错才会报错
+@retry(stop_max_attempt_number=3)
+def fun():
+	print("this is fun")
+	raise ValueError("this is test error")
+	
+	
+---json
+1.json字符串转化为python字典类型
+json.loads()
+2.字典转json字符串
+json.dumps(ret1,ensure_ascii=False,indent=2)
+ensure_ascii:让中文显示成中文
+indent:空格
+
+
+
+
+
+
+
+

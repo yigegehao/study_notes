@@ -1,0 +1,33 @@
+-Shell的类型
+1.登录式shell
+	正常通常某终端登陆
+	su - username
+	su -l username
+2.非登式shell
+	su username
+	图形终端下打开命令窗口
+	自动执行的shell脚本
+
+-bash的配置文件:
+1.全局配置
+	/etc/profile,/etc/profile.d/*.sh,/etc/bashrc
+2.个人配置
+	~/.bash_profile,~/.bashrc
+
+profile类的文件:设定环境变量,运行命令或脚本
+bashrc类的文件:设定本地变量,定义命令别名
+
+登录式shell如何读取配置文件
+/etc/profile --> /etc/profile.d/*.sh --> ~/.bashrc
+
+非登录式shell如何读取配置文件
+~/.bashrc --> /etc/bashrc -> /etc/profile.d/*.sh 
+
+
+文本排序:sort
+文本统计:wc
+字符处理命令:tr--转换或删除
+
+
+alias psj="./stop-tomcat.sh;ps -ef | grep java"
+alias rmtw="rm -rf tomcat/{work,temp};./start-normal64.sh"

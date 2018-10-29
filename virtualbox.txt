@@ -1,0 +1,5 @@
+virtualbox共享文件夹问题
+sudo usermod -aG vboxsf $(whoami)
+
+sudo apt-get install python-software-properties
+sudo apt install software-properties-common
