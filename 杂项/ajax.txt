@@ -1,0 +1,28 @@
+1.常用网络传输协议
+HTTP.HTTPS 超文本传输协议
+FTP 文本传输协议
+SMTP 简单邮件传输协议
+
+<script>
+var xhr = new XMHttpRequest;
+xhr.open("post","*.php"); 发起请求
+xhr.setRequestHeader("",""); 设置请求头
+xhr.send(''); 发送的数据
+xhr.onreadystatechange = function(){
+	if(xhr.readState == 4 && xhr.status == 200){
+		var result = xhr.responseText;
+	}
+}
+<script>
+
+jquey格式的ajax
+$.ajax({
+	url:url,
+	type:"get",
+	dateType:"json"
+	}).success(function(data){
+		
+	}).
+	error(function(){
+		
+	});

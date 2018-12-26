@@ -3,3 +3,9 @@ sudo usermod -aG vboxsf $(whoami)
 
 sudo apt-get install python-software-properties
 sudo apt install software-properties-common
+
+安装java
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get install oracle-java8-installer
+sudo update-java-alternatives -s java-8-oracle

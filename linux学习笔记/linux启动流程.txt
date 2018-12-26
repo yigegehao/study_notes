@@ -1,0 +1,35 @@
+linux系统启动流程
+
+POST-->BIOS(Boot Sequence)-->MBR(bootloader,446)-->Kerel-->initrd-->init(/sbin/init,/etc/inittab)
+
+启动的服务不同:
+	运行级别:0-6
+		0:halt
+		1:single user mode:直接以管理员身份切入
+		2.multi user mode,no NFS
+		3.multi user mode,text mode
+		4.reserved 保留,未使用
+		5.multi user mode,graphic mode
+		6.reboot
+
+内核设计风格
+核心:动态加载,内核模块
+内核:/lib/modules/"内核版本号命令的目录"
+
+--查看运行级别 runlevel,who -r
+--查看内核release号 uname -r
+
+安装grub stage1:
+--root (hd0,0) set (hd0)
+--grub-install --root-derectory=/path/to path_to_device
+--查找内核所在磁盘 find (hd0,0)/;root(hd0,0);kernel /path/to/kernel_file;initrd /path/to
+
+Kernel初始的过程
+1.设备探测
+2.驱动初始化
+3.以只读挂载根文件系统
+4.装载第一个进程init(PID:1)
+
+
+
+

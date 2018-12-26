@@ -1,0 +1,42 @@
+--应用场景--
+1.跨防火墙通信
+2.应用系统集成
+3.软件和数据重用
+
+--优点--
+异构平台的互通性
+更广泛的软件复用
+成本低,可读性强,应用范围广
+迅捷的软件发行方式
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1，本地jdk用1.7
+2，打开cmd命令，进入f盘
+3，进入cxf目录:  cd C:\Users\政\Desktop\JAVA工具\工具包\apache-cxf-3.1.1\bin
+4,执行cxf生成代码命令
+wsdl2java -p nc.itfhd -d f:\ -all http://192.168.92.233/uapws/service/IMtappUpdateFromEMSService?wsdl
+wsdl2java -p esb.customerService -d f:\ -all http://10.100.127.23:16617/EMS/DEMD/QueryZdeScSuMaGroup?wsdl=service1.wsdl
+
+wsdl2java -p nc.itfhd -d f:\ -all http://10.100.100.27:8001/sap/bc/srt/wsdl/sdef_ZHR_EMS_006/wsdl11/ws_policy/document?sap-client=710
+wsdl2java -p nc.itfhd -d f:\ -verbose "C:\Users\政\Desktop\杂物\document.xml"  生成wsdl本地的方法。
+5.去F盘找到生成的代码
+
+
+sap带有用户名密码操作
+wsdl2java -d f:\src -all C:\Users\政\Desktop\杂物\sap考试系统对接\document.wsdl
+
+
+wsdl2java -p com.xcg -d f:\ -all http://183.63.190.238:8018/axis/services/SMsg?wsdl

@@ -1,0 +1,45 @@
+1.自定义标签类
+	-继承servlet标签库TagSupport
+		跳过标签体内容 在doStartTag方法中 return SKIP_BODY
+		跳过标签下所有内容 在doEndTag方法中 return SKIP_PAGE
+	-继承servlet标签库simpleTagSupport
+		显示标签体内容 在doTag中调用 getJspBody().invoke(null);
+	    跳过标签下所有内容 throw new SkipPageException()
+2.在WEB-INF下面创建TLD配置文件
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+    version="2.0">
+	<description>A tag library exercising SimpleTag handlers.</description>
+    <tlib-version>1.0</tlib-version>
+    <short-name>immoc</short-name>
+    <uri>/immoc-tag2</uri>  --在jsp中引用时使用,唯一标记此标签库
+	
+	<tag>
+		--标签名
+		<name>skipPageOrEvalPage</name>
+		--对应创建的标签类
+		<tag-class>com.immoc.tag2.SkipPageOrEvalPage</tag-class>
+		--定义标签中的内容类型
+		<body-content>tagdependent|JSP|empty|scriptless</body-content>
+		tagdependent:标签体内容直接被写入BodyContent,由自定义标签类来进行处理,而不被JSP容器解释
+		JSP：接受所有JSP语法，如定制的或内部的tag、scripts、静态HTML、脚本元素、JSP指令和动作
+		empty：空标记，即起始标记和结束标记之间没有内容
+		scriptless：接受文本、EL和JSP动作
+		--传参,在标签类中添加对应的set方法接收参数
+		<attribute>
+        	<name>items</name>
+        	<required>true</required>
+        	<rtexprvalue>true</rtexprvalue> --可使用el表达式
+        </attribute>
+	</tag>
+</taglib>
+
+3.在jsp文件中引用标签库
+	--<%@taglib uri="/immoc-tag2" prefix="immoc">
+	--使用标签<immoc:skipPageOrEvalPage items=""/>
+总结:标签的作用
+1.控制标签体内容是否显示
+2.控制标签结束后的代码是否执行
+3.控制标签体内容重复执行
+4.改变标签体内容再输出

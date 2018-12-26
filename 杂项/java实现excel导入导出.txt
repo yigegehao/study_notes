@@ -1,0 +1,20 @@
+--读写Excel三种常用技术
+1.POI 
+	HSSF:xls
+		HSSFWorkbook workbook = new HSSFWorkbook();
+		HSSFSheet sheet = workbook.createSheet();
+		HSSFRow row = sheet.createRow(0);
+		HSSFCell cell = null;
+		cell = row.createCell(i);
+		cell.setCellValue(titles[i]);
+	XSSF:xlsx
+		WritableWorkbook workbook = Workbook.createWorkbook(file);
+		WritableSheet sheet1 = workbook.createSheet("sheet1", 0);
+		Label label;
+		label = new Label(i,0,title[i]);
+		sheet1.addCell(label);
+	HWPF:word
+	HSLF:ppt
+	HDGF:visio
+2.JXL
+3.FAStEXCEL

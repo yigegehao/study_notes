@@ -1,0 +1,24 @@
+1.将图片读取到图片缓存区
+--读取图片
+Image image2 = ImageIO.read(image);
+--得到图片的宽度和高度
+int height = image2.getHeight(null);
+int width = image2.getWidth(null);
+--写入图片缓存区
+BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+
+2.将缓存取得图片绘制到画板上,并绘制水印
+Graphics2D  g = bufferedImage.createGraphics();
+g.drawImage(image2,0,0,width,height,null);
+--设置文字水印得信息
+g.setFont(new Font(FONT_NAME,FONT_STYLE,FONT_SIZE));
+g.setColor(FONT_COLOR);
+--设置透明度和绘制水印
+g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_ATOP,ALPHA));
+g.drawString(MARK_TEXT, x, y+FONT_SIZE);
+g.dispose();
+
+3.将绘制得水印写入磁盘
+OutputStrean os = new FileOutputStream(realUploadPath+"/"+logoFileName);
+JPEGImageEncoder en = JPEGCodec.createJPEGEncoder(os);
+en.encode(bufferedImage);
