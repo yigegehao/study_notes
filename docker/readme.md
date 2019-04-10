@@ -21,10 +21,21 @@
     docker images
     3.运行镜像(会得到一个容器)
     docker run -itd -P mysql:5.6 bash
+    docker run -itd -p 指定ip:port:port name  ...
     4.查看容器
     docker ps -a
     5.启动/关闭容器
     docker start/stop 容器id
     6.在运行的容器中执行命令
     docker exec -it 容器name bash
+    7.删除容器
+    docker rm name/id
+    8.查找镜像
+    docker search 镜像名
+    9.设置镜像tag
+    docker tag id name:tag信息
+    10.查看端口绑定情况
+    docker port name port
+
+
     

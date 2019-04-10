@@ -1,0 +1,115 @@
+ssh开发步骤
+--hibernate--
+1.创建实体类对象
+2.在实体类包下创建对应的hibernate映射文件
+//3.在类路径下创建hibernate主配置文件
+
+--spring--
+3.部署spring开发环境
+4.导入spring相应的jar包
+5.编写spring的配置文件
+@1.引入命名空间和约束
+@2.配置连接池
+
+@2.1 引入jdbc连接配置文件
+<context:property-placeholder location=""/>
+
+@2.2 配置c3p0连接池
+<bean id="dataSource" class=ComboPooledDataSource的全限定类名>
+	<property name="driverClass" value="${}"/>
+	<property name="jdbcUrl" value="${}"/>
+	<property name="user" value="${}"/>
+	<property name="password" value="${}"/>
+</bean>
+
+@2.3 配置SessionFactory
+<bean id="sessionFactory" class=spring的LocalSessionFactoryBean全限定类名/>
+	<!--注入连接池-->
+	<property name="dataSource" ref="dataSource"/>
+	<!--配置hibernate其它属性-->
+	<property name="hibernateProperties">
+		<props>
+			<prop key="hibernate.dialect"></prop>
+			<prop key="hibernate.show_sql"></prop>
+			<prop key="hibernate.format_sql"></prop>
+			<prop key="hibernate.connection.autocommit"></prop>
+			<prop key="hibernate.hbm2ddl.auto">update</prop>
+		</props>
+	<!--指定hibernate属性文件的位置-->
+	<property name="mappingResources">
+		<list>
+			<value></value>
+		</list>
+	</property>
+	</property>
+</bean>
+
+@2.4 配置事务管理
+<!--配置事务管理器-->
+<bean id="transactionManager" class=sping的HibernateTransactionManager/>
+	<property name="sessionFactory" ref="sessionFactory"/>
+</bean>
+<!--开启事务注解-->
+<tx:annotation-driven transaction-manager="transactionManager"/>
+
+6.在web.xml中配置加载spring容器
+<listener>
+	<listener-class>ContextLoaderListener的全限定类名</listener-class>
+
+<context-param>
+	<param-name>contextConfigLocation</param-name>
+	<param-value>spring配置文件的位置<param-value>
+<context-param>
+
+
+
+--struts--
+
+
+
+-------------hibernate约束--------------------------
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class="全限定类名" table="表名">
+		<id name="" type="">
+			<generator class=""/>
+		</id>
+		<property name="" type=""/>
+	</class>
+
+<hibernate-mapping>
+
+
+
+
+--------------spring约束-----------------------------
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    					http://www.springframework.org/schema/beans/spring-beans.xsd
+    					http://www.springframework.org/schema/aop 
+    					http://www.springframework.org/schema/aop/spring-aop.xsd
+    					http://www.springframework.org/schema/tx 
+    					http://www.springframework.org/schema/tx/spring-tx.xsd
+    					http://www.springframework.org/schema/context 
+    					http://www.springframework.org/schema/context/spring-context.xsd">
+ </beans>
+
+ ------------struts约束---------------------------------
+ <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="" extends="" namespace"">
+		<action name="" class="spring中Action对象的名字" method="">
+			<result name=""></result>
+		</action>
+	</package>
+</struts>

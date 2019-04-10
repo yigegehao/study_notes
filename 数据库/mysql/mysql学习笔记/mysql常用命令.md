@@ -26,3 +26,7 @@
 - 解决ubuntu18登录mysql必须加sudo的问题
 
       update mysql.user set authentication_string=PASSWORD('mysql'), plugin='mysql_native_password' where user='root';
+
+- 查看变量信息
+
+        show variables like '变量名';

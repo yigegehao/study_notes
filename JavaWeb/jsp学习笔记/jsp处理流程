@@ -1,8 +1,0 @@
-jsp处理流程
-
-1.浏览器发送http请求给服务器
-2.web服务器识别出是jsp请求，将请求传递给jsp引擎
-3.jsp引擎读取jsp文件并转换为Servlet
-4.jsp将servlet编译成可执行类，并将原始请求传递给servlet引擎
-5.web服务器某组件将调用Servlet引擎，载入并执行Servlet，Servlet响应并返回数据到服务器（html界面）
-6.web服务器将响应返回给浏览器

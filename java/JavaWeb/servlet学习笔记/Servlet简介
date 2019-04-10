@@ -1,0 +1,8 @@
+Servlet简介
+-什么时servlet
+servlet时运行在Web服务器和应用服务器上的程序，作为Brower或HTTP客户端的请求和HTTP服务器上的中间层
+
+-servlet的任务
+--从客户端读取数据
+--处理数据并生成结果
+--发送数据到客户端

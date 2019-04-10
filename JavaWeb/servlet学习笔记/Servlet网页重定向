@@ -1,8 +1,0 @@
-Servlet网页重定向
-
-1.httpServletResponse.sendRedirect(String location)
-
-2.String site = "http://www.runoob.com" ;
-response.setStatus(response.SC_MOVED_TEMPORARILY);
-response.setHeader("Location", site); 
-

@@ -1,0 +1,29 @@
+SqlMapConfig.xml
+
+mybatis全局配置文件
+
+--properties
+<properties resource=""/>
+--settings
+调整一些运行属性
+比如开启二级缓存，开启延迟加载
+
+--别名定义
+<typeAliases>
+	单个别名
+	<typeAlias type="" alias=""/>
+	多个别名
+	<package name="包路径"/>
+</typeAliases>
+
+--类型处理器
+typeHandlers
+jdbc类型和java类型的转化
+一般不需要自定义
+
+--mapper
+映射配置
+resource
+url
+class 遵循mapper接口规范，xml文件放到类所在包下
+package批量加载多个 遵循规范

@@ -16,3 +16,4 @@
     flush privileges;
     //授权
      GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'x' WITH GRANT OPTION;
+    
