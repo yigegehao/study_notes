@@ -37,5 +37,10 @@
     10.查看端口绑定情况
     docker port name port
 
+# 解决Docker时间与系统时间不同步
 
+    CentOS
+    echo "Asia/shanghai" > /etc/timezone;
+    Ubuntu：
+    cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
     

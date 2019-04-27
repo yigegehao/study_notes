@@ -1,0 +1,19 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        enable_lazy_load_no_trans: false
+  datasource:
+      username: root
+      password: x
+      url: jdbc:mysql://localhost:32768/test
+      driver-class-name: com.mysql.jdbc.Driver
+  data:
+    mongodb:
+      host: 127.0.0.1
+      port: 27017
+      database: aop-demo
+      repositories:
+        enabled: true
