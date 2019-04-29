@@ -1,4 +1,7 @@
 # 导入依赖
+
+    旧版ssh整合：
+    Spring3，hibernate3，struts2.1
 # 在web.xml中配置Spring容器
 
     <listener>
