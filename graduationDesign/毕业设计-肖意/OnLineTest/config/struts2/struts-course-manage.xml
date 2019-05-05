@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+  <package name="courseManage" extends="struts-default" namespace="/admin">
+  	<action name="courseManageAction_*" method="{1}" class="courseManageAction">
+  		<result name="success">/WEB-INF/admin/courseManage.jsp</result>
+  	</action>
+  </package>
+  
+  
+  <package name="getAllCourse" extends="struts-default" namespace="/teacher">
+  	<action name="getAllCourseAction" method="getAllCourses" class="courseManageAction">
+  	</action>
+  </package>
+  
+ <package name="student_getAllCourse" extends="struts-default" namespace="/student">
+  	<action name="getAllCourseAction" method="getAllCourses" class="courseManageAction">
+  	</action>
+  </package>
+  
+  
+</struts>	
