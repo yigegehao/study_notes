@@ -1,0 +1,392 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>学术家-免费论文查重软件系统,领先的毕业论文查重检测入口平台</title>
+    <meta name="keywords" content="免费论文查重,论文检测系统,论文检测入口,论文检测,论文查重系统,论文查重软件,论文查重入口,查重软件,查重入口,查重,毕业论文查重,论文查重">
+    <meta name="description"
+          content="免费论文查重认准学术家，专为高校论文检测、毕业论文查重、硕士论文查重诞生的论文检测入口平台，本套免费论文查重系统涵盖海量的数据库，为毕业生解决各种烦恼，论文查重软件免费为各种有论文检测、论文查重需求的人提供，论文查重认准学术家！"/>
+    <link rel="stylesheet" href="http://www.xueshujia.com/member/css/iconfont.css"/>
+    <link rel="stylesheet" href="http://www.xueshujia.com/member/css/slick.css">
+    <link rel="stylesheet" href="http://www.xueshujia.com/member/css/page.min.css">
+    <script src="http://www.xueshujia.com/plugin/jquery/jquery-1.9.1.min.js"></script>
+    <script src="http://www.xueshujia.com/plugin/jquery/jquery.form.js"></script>
+    <script src="http://www.xueshujia.com/plugin/jquery/jquery.cookie.js"></script>
+    <script src="http://www.xueshujia.com/member/js/iconfont.js"></script>
+    <script src="http://www.xueshujia.com/member/js/slick.min.js"></script>
+    <script src="http://www.xueshujia.com/member/js/jqthumb.min.js"></script>
+    <script src="http://www.xueshujia.com/member/js/jquery.validate.js"></script>
+    <script src="http://www.xueshujia.com/member/js/no.scroll.js"></script>
+    <script src="http://www.xueshujia.com/member/js/main.js"></script>
+    <script src="http://www.xueshujia.com/plugin/layer-v3.1.1/layer.js"></script>
+    <script>
+    // var unread_msg = "";
+    $(function () {
+        queryAccount();
+        query_msg();
+        setInterval("query_msg()", 5000);
+    });
+
+    function queryAccount() {
+        $.post('/member/queryAccount', {}, function (result) {
+            if (result.data.account) {
+                $("#blcWordCount").text(result.data.account.blcWordCount + result.data.account.blcFreeCount);
+            } else {
+                if (result.code == -2) {
+                    location.href = "/login.html"
+                }
+                $("#blcWordCount").text('0');
+            }
+        }, 'json');
+
+        $.post('/organization/queryAccount', {}, function (result) {
+            if (result.data.account) {
+                $("#blcCheckCount").text(result.data.account.blcCheckCount);
+            } else {
+                if (result.code == -2) {
+                    location.href = "/login.html"
+                }
+                if (result.code == -2) {
+                    location.href = "/login.html"
+                }
+                $("#blcCheckCount").text('0');
+            }
+        }, 'json');
+    }
+
+    function loginOut() {
+        layer.confirm("确定要注销退出吗？", {
+            btn: ["确定", "取消"],
+            icon: 3
+        }, function () {
+            $.post('/manage/logout', function (data) {
+                if (data.success) {
+                    if (data.data.url) {
+                        window.location.href = data.data.url;
+                    } else {
+                        window.location.href = '/';
+                    }
+                } else {
+                    window.location.href = '/';
+                }
+            });
+        }, function (index) {
+            layer.close(index);
+        });
+    }
+
+    function query_msg() {
+        $.post("/member/getUnread", function (count) {
+            // var msg = "";
+            // $(count).each(function (i, v) {
+            //     msg = msg + "<a class='txt' href='javascript:;' onclick='$.outenkou.layout.open(\"/member/notification\");'>" + v + "</a>";
+            // });
+            // if (unread_msg != msg) {
+            //     unread_msg = msg;
+            //     $("#unread_msg").html(count);
+            // }
+            // $("#unread_message").text(count.length);
+            if (count === 0) {
+                $("#redCircle").html('');
+                $("#redCircle").hide();
+                $("#notificationCount").html('');
+            } else {
+                $("#redCircle").html(count);
+                $("#redCircle").show();
+                $("#notificationCount").html(count);
+            }
+        });
+    }
+</script>
+</head>
+<body>
+<section class="loading">
+    <img src="http://www.xueshujia.com/member/image/loading.gif" alt="loading..."/>
+</section>
+<!-- nav -->
+<nav class="nav">
+    <div class="logo">
+        <a href="http://www.xueshujia.com/index">
+            <img src="http://www.xueshujia.com/member/image/logo.png" alt="logo"/>
+        </a>
+    </div>
+    <ul class="nav-list">
+        <li>
+            <a href="http://www.xueshujia.com/member/index">
+                <div class="cot">
+                    <i class="iconfont icon-tijiao"></i>
+                    <p class="text">提交论文</p>
+                    <!--<p class="text" th:text="${session.member.agentLevel}"></p>-->
+                </div>
+            </a>
+
+        </li>
+        <li>
+            <a href="http://www.xueshujia.com/member/report">
+                <div class="cot">
+                    <i class="iconfont icon-report"></i>
+                    <p class="text">查看报告</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="http://www.xueshujia.com/member/reduce">
+                <div class="cot">
+                    <i class="iconfont icon-jiqiren"></i>
+                    <p class="text">机器人降重</p>
+                </div>
+            </a>
+        </li>
+        <li class="active">
+            <a href="http://www.xueshujia.com/member/finalRevision">
+                <div class="cot">
+                    <i class="iconfont icon-chazhao"></i>
+                    <p class="text">定稿查重</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="http://www.xueshujia.com/member/selfDataBase">
+                <div class="cot">
+                    <i class="iconfont icon-tijiao"></i>
+                    <p class="text">自建库</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="http://www.xueshujia.com/member/accountManage">
+                <div class="cot">
+                    <i class="iconfont icon-renwu"></i>
+                    <p class="text">账户管理</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="http://www.xueshujia.com/member/chargeCenter">
+                <div class="cot">
+                    <i class="iconfont icon-chongzhi"></i>
+                    <p class="text">充值中心</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="http://www.xueshujia.com/member/freeCheck">
+                <div class="cot">
+                    <i class="iconfont icon-mianfei"></i>
+                    <p class="text">免费检测</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="http://www.xueshujia.com/reduce" target="_blank">
+                <div class="cot">
+                    <i class="iconfont icon-kefu"></i>
+                    <p class="text">论文服务</p>
+                </div>
+            </a>
+        </li>
+        
+
+        <!--代理-->
+        
+    </ul>
+</nav>
+<!-- nav end -->
+<!-- personal -->
+<section class="personal-box">
+    <style>
+        #redCircle {
+            position: absolute;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            padding-top: 1px;
+            vertical-align: middle;
+            font-size: 8px;
+            text-align: center;
+            background-color: red;
+            right: -3px;
+            bottom: 0;
+            z-index: 10;
+            color: white;
+        }
+    </style>
+    
+    <ul style="position:absolute; right: 0">
+        <!--<div style="display: inline-block;margin-top: 12px">
+            <div style="float: left;margin-top: 7px;"><a href="http://www.xueshujia.com/member/notification"><img
+                    style="width: 30px;height: 30px;cursor: pointer" src="http://www.xueshujia.com/member/image/msg.jpg" alt="icon"></a></div>
+            <div style="width: 22px;height: 22px;float: left;"><span style="color: red;" id="unread_msg">0</span></div>
+        </div>-->
+    </ul>
+</section>
+<!-- personal end -->
+<!-- container -->
+<div class="container">
+    <!-- container-cot -->
+    <section class="container-cot">
+        <!-- hp-ad -->
+        <div class="hp-ad" style="width: 100%;height: 70px">
+    <a href="http://www.xueshujia.com/member/finalRevision" target="_blank" style="width: 100%;height: 100%">
+        <img style="width: 100%;height: 100%" src="http://www.xueshujia.com/logo\2019\03\19\201903191313103317557.jpg" alt="广告" />
+    </a>
+</div>
+        <!-- hp-ad end -->
+        <!-- final-revision -->
+        <div class="final-revision-box clearfix">
+            <!-- final-revision-box -->
+            <div class="final-revision">
+                <div class="final-revision-cot">
+                    <p class="tip" style="font-size: 20px">*请咨询校方所用查重系统并选择与学校查重系统相同的接口，查重结果将与学校一致哦！</p>
+                    <div class="final-revision-list">
+                        <ul class="list clearfix">
+                            <li>
+                                <div class="cot">
+                                    <div class="img">
+                                        <img src="http://www.xueshujia.com/member/image/final-revision-1.png" alt="logo"/>
+                                    </div>
+                                    <ul class="link-list">
+                                        <li>
+                                            <a href="http://check.cncnki.com/product/product_purchase/4310.html" target="_blank">知网本科PMLC毕业论文查重</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://check.cncnki.com/product/product_purchase/4312.html"target="_blank">知网期刊职称论文查重</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://check.cncnki.com/product/product_purchase/4311.html"target="_blank">知网研究生VIP5.1/TMLC2查重</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://check.cncnki.com/product/product_purchase/4314.html"target="_blank">大分解论文查重</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://check.cncnki.com/product/product_purchase/4313.html"target="_blank">知网论文小分解查重检测</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cot">
+                                    <div class="img">
+                                        <img src="http://www.xueshujia.com/member/image/final-revision-2.png" alt="logo"/>
+                                    </div>
+                                    <ul class="link-list">
+                                        <li>
+                                            <a href="#">大学生版</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">研究生版</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">编辑部版</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">职称认定版</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">知网论文小分解查重检测</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cot">
+                                    <div class="img">
+                                        <img src="http://www.xueshujia.com/member/image/final-revision-3.png" alt="logo"/>
+                                    </div>
+                                    <ul class="link-list">
+                                        <li>
+                                            <a href="#">博士论文版</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">本科论文版</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">职称论文版</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">学术预审版</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">课程作业版</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">软件成果版</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="text-list">
+                        <ol class="list">
+                            <li>注意选择与学校一致的查重系统，查询结果与学校100%一致。</li>
+                            <li>请选择与本人论文方向相同的查重入口，每个查重入口的查重范围不尽相同。</li>
+                            <li>定稿查重功能为第三方合作机构提供。</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <!-- final-revision end -->
+            <!-- submit-thesis-inf-box -->
+            <div class="submit-thesis-inf-box">
+                <div class="statement">
+                    <div class="text-box">
+                        <h6 class="title">数据库范围</h6>
+                        <p class="text">学术期刊，学位论文，会议论文，互联网，英文数据库(涵盖期刊，硕博，会议的英文数据）。</p>
+                    </div>
+                    <div class="text-box">
+                        <h6 class="title">检测范围</h6>
+                        <p class="text">涵盖所有中英文类别，包括哲学、经济学、管理学、法学、社会科学、教育学、文学、艺术学、历史学、理学、工学、农学、医学、政治学、军事学等。</p>
+                    </div>
+                    <div class="text-box">
+                        <h6 class="title">郑重声明</h6>
+                        <p class="text">学术家论文检测系统遵守相关保密规定，绝不收录和泄露您送检文档的任何信息，请放心检测！</p>
+                    </div>
+                </div>
+                <div class="question">
+                    <h6 class="title">常见问题</h6>
+                    <ol class="text-list">
+                        <li class="text">
+                            <a href="http://www.xueshujia.com/answer/236.html">论文查重一般多少钱！</a>
+                        </li>
+                        <li class="text">
+                            <a href="http://www.xueshujia.com/answer/221.html"> 免费查重包括知网查重吗?</a>
+                        </li>
+                        <li class="text">
+                            <a href="http://www.xueshujia.com/answer/218.html">论文查重严格吗？论文查重收费吗？</a>
+                        </li>
+                        <li class="text">
+                            <a href="http://www.xueshujia.com/answer/217.html">期刊论文会查重吗？查重率高吗？</a>
+                        </li>
+                        <li class="text">
+                            <a href="http://www.xueshujia.com/answer/209.html">论文查重检测是什么？</a>
+                        </li>
+                        <li class="text">
+                            <a href="http://www.xueshujia.com/answer/202.html">知网检测入口在哪里？</a>
+                        </li>
+                        <li class="text">
+                            <a href="http://www.xueshujia.com/answer/200.html">论文如何查重？</a>
+                        </li>
+                        <li class="text">
+                            <a href="http://www.xueshujia.com/answer/199.html">论文如何查重？</a>
+                        </li>
+                        <li class="text">
+                            <a href="http://www.xueshujia.com/answer/194.html">大学生论文联合对比库是什么意思？</a>
+                        </li>
+                        <li class="text">
+                            <a href="http://www.xueshujia.com/answer/187.html">学术不端？学术不端系统又是什么？</a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <!-- submit-thesis-inf-box end -->
+        </div>
+        <!-- final-revision end -->
+    </section>
+    <!-- container-cot end -->
+</div>
+<!-- container end -->
+</body>
+</html>
