@@ -5,7 +5,7 @@
     docker images
     //启动mysql镜像
     docker run -itd -P mysql:5.6 bash
-    docker run -p 3306:3306 --name mymysql -e MYSQL_ROOT_PASSWORD=x -d mysql:5.6
+    docker run -p 3306:3306 --name mysql56 -e MYSQL_ROOT_PASSWORD=x -d mysql:5.6
     //查看已经运行的docker镜像
     docker ps -a
     //连接到docker镜像
