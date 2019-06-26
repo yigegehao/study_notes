@@ -19,4 +19,9 @@ chkconfig:主要用来更新和查询系统服务的运行级信息
 
 diff -urNa 新文件 旧文件
 
+---关闭桌面
+sudo systemctl set-default multi-user.target
+---开启桌面
+sudo systemctl set-default graphical.target
+
 

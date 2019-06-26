@@ -12,7 +12,15 @@
       "registry-mirrors":  
       ["https://docker.mirrors.ustc.edu.cn"]
     } 
-
+    阿里云加速源
+    sudo mkdir -p /etc/docker
+    sudo tee /etc/docker/daemon.json <<-'EOF'
+    {
+    "registry-mirrors": ["https://gle3e6xb.mirror.aliyuncs.com"]
+    }
+    EOF
+    sudo systemctl daemon-reload
+    sudo systemctl restart docker
 ## 常用命令
 
     1.拉取镜像
