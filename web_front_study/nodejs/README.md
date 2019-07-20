@@ -37,3 +37,9 @@ is JavaScript runtime built on Chrome's V8 JavaScript engine.
 3. 单线程
 4. 拥有世界最大的开源库 --npm
 
+### node.js与javascript的关系
+
+    javascript有BOM和DOM，nodejs有大量的第三方库
+    javascript运行在前端，nodejs运行在后端
+![](./picture/nodejs_js_diff.png)
+
