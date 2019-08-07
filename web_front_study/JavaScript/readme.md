@@ -8,5 +8,8 @@
 
 # JavaScript内置类型
 
-    null、undefined、boolean、number、string、object、symbol(es6新增)
+    7中类型nunbsos
+    null、undefined、number、boolean、string、object、symbol(es6新增)
+    null == undefined  true
+    null === undefined false
     查看值类型：typeof 变量值

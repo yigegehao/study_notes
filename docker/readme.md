@@ -44,6 +44,8 @@
     docker tag id name:tag信息
     10.查看端口绑定情况
     docker port name port
+    11.特权模式下启动centos
+    docker run -it --name centos7 --privileged=true centos:latest /usr/sbin/init
 
 # 解决Docker时间与系统时间不同步
 
