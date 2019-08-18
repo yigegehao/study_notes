@@ -1,3 +1,18 @@
+# 什么是Docker
+
+    Docker是开发人员和系统管理员使用容器开发、部署、运行应用程序的平台，使用linux容器部署应用称为容器化
+
+# Docker的优点
+
+    灵活：复杂的应用集装箱化
+    轻量：共享主机内核
+    可互换：即时部署更新和升级
+    便携式：本地构建,部署到云
+    可扩展：分发容器副本
+    可堆叠：垂直即时堆叠服务
+
+# 容器和虚拟机的区别
+![](./picture/vm_docker.png)
 # Ubuntu安装Docker
 
     1. sudo apt install docker.io
@@ -44,6 +59,8 @@
     docker tag id name:tag信息
     10.查看端口绑定情况
     docker port name port
+    11.特权模式下启动centos
+    docker run -it --name centos7 --privileged=true centos:latest /usr/sbin/init
 
 # 解决Docker时间与系统时间不同步
 

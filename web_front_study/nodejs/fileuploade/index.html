@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+            <h2>单图上传</h2>
+            <!-- <input type="file" name="logo">
+            <input type="submit" value="提交"> -->
+            <img class="photo photo-img" src="">
+            <form id="img_form" action="" method="POST" enctype="multipart/form-data">
+                <input name="img" type="file" id="img-input" οnchange="changeImg()" style="display: none"/>
+                <input type="button" value="提交">
+            </form>
+    </body>
+</html>
+
+<script>
+    function changeImg() {
+  // 图片更改后异步提交表单上传服务器，返回url
+  var form = $("#img_form");
+  var options = {
+    url: domain + '/upload/img', //上传文件的路径
+    type:'post',
+    success:function(data){
+      data = JSON.parse(data);
+      if(data.code == 0) {
+        imgUrl = data.data.url;
+      } else {
+      	alert('上传图片出错！');
+      }
+    }
+  };
+  form.ajaxSubmit(options);
+ 
+  // 在前端显示上传的图片
+  var file = $('.photo').find('input')[0].files[0];
+  var reader = new FileReader();
+  reader.onload = function(e){
+  var imgFile = e.target.result;
+    $('.photo-img').attr('src',imgFile);
+    $('.photo-img').attr('style','display:block');
+  }
+  reader.readAsDataURL(file);
+}
+
+</script>
