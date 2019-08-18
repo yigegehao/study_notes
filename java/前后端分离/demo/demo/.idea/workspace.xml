@@ -1,7 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="830b0dd3-79c5-474b-8296-3c93dfdd4dcb" name="Default Changelist" comment="" />
+    <list default="true" id="830b0dd3-79c5-474b-8296-3c93dfdd4dcb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../RestSpringMVCDemo/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/../RestSpringMVCDemo/.classpath" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RestSpringMVCDemo/.project" beforeDir="false" afterPath="$PROJECT_DIR$/../RestSpringMVCDemo/.project" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RestSpringMVCDemo/.settings/.jsdtscope" beforeDir="false" afterPath="$PROJECT_DIR$/../RestSpringMVCDemo/.settings/.jsdtscope" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RestSpringMVCDemo/.settings/org.eclipse.core.resources.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/../RestSpringMVCDemo/.settings/org.eclipse.core.resources.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RestSpringMVCDemo/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/../RestSpringMVCDemo/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RestSpringMVCDemo/.settings/org.eclipse.m2e.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/../RestSpringMVCDemo/.settings/org.eclipse.m2e.core.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RestSpringMVCDemo/.settings/org.eclipse.wst.common.component" beforeDir="false" afterPath="$PROJECT_DIR$/../RestSpringMVCDemo/.settings/org.eclipse.wst.common.component" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RestSpringMVCDemo/.settings/org.eclipse.wst.common.project.facet.core.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RestSpringMVCDemo/.settings/org.eclipse.wst.common.project.facet.core.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RestSpringMVCDemo/.settings/org.eclipse.wst.validation.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/../RestSpringMVCDemo/.settings/org.eclipse.wst.validation.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/java/cn/edu/tju/rico/annotation/IgnoreSecurity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/java/cn/edu/tju/rico/annotation/IgnoreSecurity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/java/cn/edu/tju/rico/aspect/ExceptionAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/java/cn/edu/tju/rico/aspect/ExceptionAspect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/java/cn/edu/tju/rico/aspect/SecurityAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/java/cn/edu/tju/rico/aspect/SecurityAspect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/java/cn/edu/tju/rico/authorization/DefaultTokenManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/java/cn/edu/tju/rico/authorization/DefaultTokenManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/java/cn/edu/tju/rico/authorization/TokenManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/java/cn/edu/tju/rico/authorization/TokenManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/java/cn/edu/tju/rico/controller/TokenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/java/cn/edu/tju/rico/controller/TokenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/java/cn/edu/tju/rico/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/java/cn/edu/tju/rico/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/java/cn/edu/tju/rico/exception/TokenException.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/java/cn/edu/tju/rico/exception/TokenException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/java/cn/edu/tju/rico/filter/CorsFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/java/cn/edu/tju/rico/filter/CorsFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/java/cn/edu/tju/rico/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/java/cn/edu/tju/rico/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/java/cn/edu/tju/rico/model/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/java/cn/edu/tju/rico/model/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/java/cn/edu/tju/rico/response/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/java/cn/edu/tju/rico/response/Response.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/java/cn/edu/tju/rico/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/java/cn/edu/tju/rico/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/java/cn/edu/tju/rico/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/java/cn/edu/tju/rico/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/java/cn/edu/tju/rico/utils/CodecUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/java/cn/edu/tju/rico/utils/CodecUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/java/cn/edu/tju/rico/utils/CollectionUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/java/cn/edu/tju/rico/utils/CollectionUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/java/cn/edu/tju/rico/utils/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/java/cn/edu/tju/rico/utils/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/java/cn/edu/tju/rico/utils/StringUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/java/cn/edu/tju/rico/utils/StringUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/java/cn/edu/tju/rico/utils/WebContextUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/java/cn/edu/tju/rico/utils/WebContextUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/resources/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/resources/applicationContext.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/resources/jdbc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/resources/jdbc.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/resources/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/resources/log4j.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/resources/redis.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/resources/redis.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/resources/springmvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RestSpringMVCDemo/src/main/resources/springmvc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RestSpringMVCDemo/ssm.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../RestSpringMVCDemo/ssm.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../readme.md" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -11,27 +48,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../RestSpringMVCDemo/src/main/webapp/index.jsp">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../RestSpringMVCDemo/src/main/webapp/WEB-INF/web.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="21" column="49" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
@@ -46,8 +63,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="260" />
-    <option name="y" value="54" />
+    <option name="x" value="520" />
+    <option name="y" value="80" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
   </component>
@@ -57,8 +74,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -135,16 +152,17 @@
       <updated>1562684837699</updated>
       <workItem from="1562684840254" duration="668000" />
       <workItem from="1562685604059" duration="48000" />
+      <workItem from="1564618765211" duration="144000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="716000" />
+    <option name="totallyTimeSpent" value="860000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="260" y="54" width="1400" height="1000" extended-state="0" />
+    <frame x="520" y="80" width="1400" height="1000" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25520834" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26041666" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -161,7 +179,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50074404" side_tool="true" visible="true" weight="0.3298122" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="9" sideWeight="0.50074404" side_tool="true" visible="true" weight="0.3298122" />
       <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49925596" visible="true" weight="0.3298122" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
@@ -181,18 +199,18 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/../RestSpringMVCDemo/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-288">
+          <caret line="21" column="49" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="49" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../RestSpringMVCDemo/src/main/webapp/index.jsp">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/../RestSpringMVCDemo/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="21" column="49" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="49" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
   <component name="masterDetails">
