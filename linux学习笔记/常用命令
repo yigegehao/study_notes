@@ -24,4 +24,7 @@ sudo systemctl set-default multi-user.target
 ---开启桌面
 sudo systemctl set-default graphical.target
 
+统计文件名为entity的目录下的java文件个数
+find -name entity -type d | grep -v 'target' | xargs ls | grep 'java$' | wc -l
+
 
