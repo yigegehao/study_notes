@@ -13,3 +13,11 @@
     null == undefined  true
     null === undefined false
     查看值类型：typeof 变量值
+
+# 变量提升
+
+    javascript引擎解析时,先获取所有被声明的变量,然后再一行一行执行
+
+# 为false的六个值
+
+    undefined、null、false、0、NaN、""或''
