@@ -52,3 +52,9 @@ groupadd groupdel groupmod gpasswd
 --权限管理
 chown  chgrp chmod umask
 
+--挂载只读文件系统
+mount -o rw,remount /文件系统
+
+--擦除工具
+wipe -rfi file
+
