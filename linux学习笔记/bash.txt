@@ -27,6 +27,10 @@ bashrc类的文件:设定本地变量,定义命令别名
 文本排序:sort
 文本统计:wc
 字符处理命令:tr--转换或删除
+字符截取:cut -d ‘分隔符’ -f ‘分隔后的第几段’ ; cut -c 行数范围
+双向重定向:tee
+相似行合并:join -t 
+分区命令:split -b/-l 值1 文件/- 名字前缀
 
 
 alias psj="./stop-tomcat.sh;ps -ef | grep java"
