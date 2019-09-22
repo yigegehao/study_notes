@@ -47,3 +47,7 @@
     userAdminAnyDatabase：只在admin数据库中可用，赋予用户所有数据库的userAdmin权限  
     dbAdminAnyDatabase：只在admin数据库中可用，赋予用户所有数据库的dbAdmin权限。  
     root：只在admin数据库中可用。超级账号，超级权限
+
+# 数据表备份
+mongoexport -u 用户名 -p 密码 -c 表名 -o 备份路径 --authenticationDatabase admin
+mongoimport -u wedora -p 123456 -d wedora -c api_key --upsert ./api_key.dat --authenticationDatabase admin

@@ -1,10 +1,79 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
         <title></title>
+        <style type="text/css">
+            #stage{
+                width: 300px;
+                height: 300px;
+                position: relative;
+            } 
+            #background{
+                width: 300px;
+                height: 300px;
+                position:absolute;
+                top: 0px;
+                left: 0px;
+                background-color: bisque;
+            }
+            #cannon{
+                widows: 20px;
+                height: 20px;
+                position: absolute;
+                top: 270px;
+                left: 140px;
+                background-color: black; 
+            }
+            #alien{
+                width: 20px;
+                height: 20px;
+                position: absolute;
+                top: 20px;
+                left: 80px;
+                background-color: blue;
+            }
+            #missile{
+                width: 10px;
+                height: 10px;
+                position: absolute;
+                top: 270px;
+                left: 140px;
+                background-color: currentColor
+            }
+            #explosion{
+                width: 20px;
+                height: 20px;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                background-color: brown;
+                display: none;
+            }
+        </style>
     </head>
     <body>
+        <div id="stage">
+            <div id="background"></div>
+            <div id="cannon"></div>
+            <div id="missile"></div>
+            <div id="alien"></div>
+            <div id="explosion"></div>
+        </div>
+        <p id="output">请输入X和Y坐标(0-300),然后点击fire.</p><button
+        <input id="inputX" type="text" placeHolder="请输入X坐标">
+        <input id="inputY" type="text" placeHolder="请输入Y坐标">
         <script>
+            //游戏逻辑
+            var cannon = document.querySelector("#cannon");
+            var missile = document.querySelector("#missile");
+            var alien = document.querySelector("#alien");
+            var explosion = document.querySelector("#explosion");
+            var output = document.querySelector("#output");
+            var inputX = document.querySelector("#inputX");
+            var inputY = document.querySelector("#inputY");
+
+
             function BinaryTree(){
                 //定义一个节点
                 var Node = function(key){
