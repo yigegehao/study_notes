@@ -1,0 +1,13 @@
+Sub setpicsize()
+Dim n
+On Error Resume Next
+For n = 1 To ActiveDocument.InlineShapes.Count
+    ActiveDocument.InlineShapes(n).Height = 40
+    ActiveDocument.InlineShapes(n).Width = 30
+    Next n
+For n = 1 To ActiveDocument.Shapes.Count
+    ActiveDocument.Shapes(n).Height = 40
+    ActiveDocument.Shapes(n).Width = 30
+    ActiveDocument.Insert
+    Next n
+End Sub
