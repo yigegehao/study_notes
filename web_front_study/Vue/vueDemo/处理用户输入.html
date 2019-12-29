@@ -8,23 +8,21 @@
 	</head>
 	<body>
 		<div id="app">
-			<div id="example-1">
-				<input v-model="message" placeholder="edit me" />
-				<p>Message is: {{ message }}</p>
-				<button type="button" @click="commit">提交</button>
-			</div>
+            <p>{{ message }}</p>
+            <button v-on:click="reverseMessage">反转信息</button>
 		</div>
 		<script>
+			var data = {a:1};
 			var vm = new Vue({
 				el: "#app",
 				data: {
-					message : "111"
+					message: 'hello vue.js'
 				},
-				methods: {
-					commit: function () {
-						console.log(this.message);
-					}
-				}
+                methods: {
+                    reverseMessage: function(){
+                        this.message = this.message.split('').reverse().join('');
+                    }
+                }
 			});
 		</script>
 	</body>
