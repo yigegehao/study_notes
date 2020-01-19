@@ -1,0 +1,17 @@
+/**
+ *这是一个利用反射机制，父类给子类赋值的工具
+ */
+public class FieldReflectParentToChildrenClass {
+    public void FieldReflectParentToChildren(Object Parent, Object children) {
+        Parent parent = new Parent();
+        Children children = new Children();
+        //获取父类中的所有域（不包括继承所得到的域）
+        Field[] fields = Parent.class.getDeclaredFields();
+        for (Field field:fields) {
+            PropertyDescriptor pd = new PropertyDescriptor(field.getName(), Parent.class);
+            Method getMethod = pd.getReadMethod(); //获取父类中域对应的get方法
+            Method setMethod = pd.getWriteMethod(); //获取父类中域对应的set方法
+            setMethod.invoke(children,getMethod.invoke(parent)); //给子类对象中的域赋值
+        }
+    }
+}

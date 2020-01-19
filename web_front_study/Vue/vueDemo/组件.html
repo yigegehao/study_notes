@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+		<script src="vue.js" type="text/text/javascript" charset="UTF-8"></script>
+	</head>
+	<body>
+		<div id="app">
+            <button-counter title="aa" @clicknow="clicknow"></button-counter>
+            <button-counter title="bb" @clicknow="clicknow"></button-counter>
+        </div>
+		<script>
+		Vue.component('button-counter',{
+            props: ['title'],
+            data: function () {
+                return {
+                    count: 0
+                }
+            },
+            template: '<div><button v-on:click="clickfun">{{title}} You clicke me {{count}} times.</button></div>',
+            methods: {
+                clickfun: function(){
+                    this.count++;
+                    this.$emit('clicknow',this.count);
+                }
+            }
+        });
+        var vm = new Vue({
+            el: "#app",
+            data: {
+
+            },
+            methods: {
+                clicknow: function(e){
+                    console.log(e);
+                }
+            }
+        })
+		</script>
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+		<script src="vue.js" type="text/text/javascript" charset="UTF-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<div v-if="type === 'B'">B</div>
+			<div v-else-if="type === 'A'">A</div>
+			<h1 v-show="ok">hello!</h1>
+			<ol>
+				<li v-for="todo in todos">
+					{{ todo.text }}
+				</li>
+			</ol>
+		</div>
+		<script>
+			var data = {a:1};
+			var vm = new Vue({
+				el: "#app",
+				data: {
+					type: "B",
+					ok: true,
+					todos: [
+						{ text: 'aa' },
+						{ text: 'bb' },
+						{ text: 'cc' }
+					]
+				}
+			});
+		</script>
+	</body>
+</html>
