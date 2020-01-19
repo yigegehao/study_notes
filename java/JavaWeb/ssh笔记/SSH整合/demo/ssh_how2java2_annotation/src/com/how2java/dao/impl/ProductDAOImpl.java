@@ -1,5 +1,5 @@
 package com.how2java.dao.impl;
- 
+
 import java.util.List;
 
 import org.hibernate.SessionFactory;
@@ -11,28 +11,30 @@ import com.how2java.dao.ProductDAO;
 import com.how2java.pojo.Product;
 
 @Repository("productDAO")
-public class ProductDAOImpl extends HibernateTemplate implements ProductDAO{
-     
-	//@Autowired
-    //private HibernateTemplate hibernateTemplate;//提供Hibernate模板
-	@Autowired private SessionFactory sessionFactory;
-	
-	
+public class ProductDAOImpl extends HibernateTemplate implements ProductDAO {
+
+    //@Autowired
+    //private HibernateTemplate hibernateTemplate;//锟结供Hibernate模锟斤拷
+    @Autowired
+    private SessionFactory sessionFactory;
+
+
     public SessionFactory getSessionFactory() {
-		return sessionFactory;
-	}
+        return sessionFactory;
+    }
 
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
-	}
+    public void setSessionFactory(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
-	public List<Product> list() {
+    public List<Product> list() {
         return /*hibernateTemplate.*/find("from Product");
     }
- 
+
     @Override
     public void add(Product p) {
-        /*hibernateTemplate.*/save(p);
+        /*hibernateTemplate.*/
+        save(p);
     }
-     
+
 }

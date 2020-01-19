@@ -11,7 +11,7 @@ import org.junit.Test;
 public class IniRealmTest {
 
     @Test
-    public void testAuthentication(){
+    public void testAuthentication() {
         IniRealm iniRealm = new IniRealm("classpath:user.ini");
 
         //1.构建securityManager环境
@@ -22,10 +22,10 @@ public class IniRealmTest {
         SecurityUtils.setSecurityManager(dsm);
         Subject subject = SecurityUtils.getSubject();
 
-        UsernamePasswordToken token = new UsernamePasswordToken("mark","123456");
+        UsernamePasswordToken token = new UsernamePasswordToken("mark", "123456");
         subject.login(token);
 
-        System.out.println("isAuthenticated:"+subject.isAuthenticated());
+        System.out.println("isAuthenticated:" + subject.isAuthenticated());
         subject.checkPermission("admin");
         subject.checkPermission("user:delete");
     }

@@ -15,18 +15,18 @@ public class CustomSessionManager extends DefaultSessionManager {
     protected Session retrieveSession(SessionKey sessionKey) throws UnknownSessionException {
         Serializable sessionId = getSessionId(sessionKey);
         ServletRequest request = null;
-        if(sessionKey instanceof WebSessionKey){
-            request = ((WebSessionKey)sessionKey).getServletRequest();
+        if (sessionKey instanceof WebSessionKey) {
+            request = ((WebSessionKey) sessionKey).getServletRequest();
         }
-        if(request != null && sessionId != null ){
+        if (request != null && sessionId != null) {
             Session session = (Session) request.getAttribute(sessionId.toString());
-            if(session != null){
+            if (session != null) {
                 return session;
             }
         }
         Session session = super.retrieveSession(sessionKey);
-        if(request != null && sessionId != null){
-            session.setAttribute(sessionId.toString(),session);
+        if (request != null && sessionId != null) {
+            session.setAttribute(sessionId.toString(), session);
         }
         return session;
     }

@@ -7,18 +7,17 @@ var app = express();
 var user = require('./model/user');
 var bodyParser = require('body-parser');
 // 创建 application/x-www-form-urlencoded 编码解析
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
+var urlencodedParser = bodyParser.urlencoded({extended: false})
 var session = require('client-sessions');
 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
-app.use("/login",function(req,res){
+app.use("/login", function (req, res) {
     var fileName = "./html/login.html";
-    fs.readFile(fileName,function(err,data){
-        if(err){
+    fs.readFile(fileName, function (err, data) {
+        if (err) {
             console.log(err.message);
-        }
-        else{
+        } else {
             res.write(data);
             res.end();
         }
@@ -26,76 +25,66 @@ app.use("/login",function(req,res){
 })
 //设置seesion
 app.use(session({
-    cookieName: 'session',  
+    cookieName: 'session',
     secret: 'random_string_goes_here', //一个随机字符串，因为客户端的数据都是不安全的，所以需要进行加密
-    duration: 30*60*1000, //session的过期时间，过期了就必须重新设置
-    activeDuration: 5* 60*1000, // 激活时间，比如设置为30分钟，那么只要30分钟内用户有服务器的交互，那么就会被重新激活。
+    duration: 30 * 60 * 1000, //session的过期时间，过期了就必须重新设置
+    activeDuration: 5 * 60 * 1000, // 激活时间，比如设置为30分钟，那么只要30分钟内用户有服务器的交互，那么就会被重新激活。
 }));
 //登录校验
-app.post("/loginCheck", urlencodedParser,function(req,res){
-    console.log('loginCheck',req.session.user);
-     if(req.session.user){
-         console.log("yyyyyyy");
-         console.log(req.session.user);
+app.post("/loginCheck", urlencodedParser, function (req, res) {
+    console.log('loginCheck', req.session.user);
+    if (req.session.user) {
+        console.log("yyyyyyy");
+        console.log(req.session.user);
         var fileName = "./html/success.html";
-        fs.readFile(fileName,function(err,data){
-            if(err){
+        fs.readFile(fileName, function (err, data) {
+            if (err) {
                 console.log(err.message);
-            }
-            else{
+            } else {
                 res.write(data);
                 res.end();
             }
         });
-     }else{
+    } else {
         user.findOne({
-            where:{
-                name:req.body.name,
-                passwd:req.body.passwd
+            where: {
+                name: req.body.name,
+                passwd: req.body.passwd
             }
-        }).then(user=>{
-            if(user){
+        }).then(user = > {
+            if(user) {
                 req.session.user = user //将user信息保存到Session中
                 var fileName = "./html/success.html";
-                fs.readFile(fileName,function(err,data){
-                    if(err){
+                fs.readFile(fileName, function (err, data) {
+                    if (err) {
                         console.log(err.message);
-                    }
-                    else{
+                    } else {
                         res.write(data);
                         res.end();
                     }
                 });
             }else{
                 res.end("faile");
-            }
-        });
-     } 
+    }
+    })
+        ;
+    }
 });
 //注销
-app.get('/logout',function(req,res){
+app.get('/logout', function (req, res) {
     console.log("-----------------------");
     console.log(req.session.user);
     req.session.reset;
-    req.session.user=null;
+    req.session.user = null;
     console.log('aaaaaaaaaaaaaaaaaaaaa')
     console.log(req.session.user);
     res.redirect('/login');
 });
 //监听端口
-app.listen(8888,()=>{
+app.listen(8888, () = > {
     console.log('server running at http://127.0.0.1:8888');
-});
-
-
-
-
-
-
-
-
-
-
+})
+;
 
 
 // http.createServer(function(require,response){

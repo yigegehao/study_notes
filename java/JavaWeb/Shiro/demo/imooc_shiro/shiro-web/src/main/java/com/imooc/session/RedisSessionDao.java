@@ -20,26 +20,28 @@ public class RedisSessionDao extends AbstractSessionDAO {
 
     private final String SHIRO_SESSION_PREFIX = "imooc-session:";
 
-    private byte[] getKey(String key){
+    private byte[] getKey(String key) {
         return (SHIRO_SESSION_PREFIX + key).getBytes();
     }
-    private void saveSession(Session session){
-        if(session != null && session.getId() != null){
-            byte[] key =  getKey(session.getId().toString());
+
+    private void saveSession(Session session) {
+        if (session != null && session.getId() != null) {
+            byte[] key = getKey(session.getId().toString());
             byte[] value = SerializationUtils.serialize(session);
-            jedisUtil.set(key,value);
-            jedisUtil.expire(key,600);
+            jedisUtil.set(key, value);
+            jedisUtil.expire(key, 600);
         }
     }
+
     protected Serializable doCreate(Session session) {
         Serializable sessionId = generateSessionId(session);
-        assignSessionId(session,sessionId);
+        assignSessionId(session, sessionId);
         saveSession(session);
         return sessionId;
     }
 
     protected Session doReadSession(Serializable sessionId) {
-        if(sessionId == null){
+        if (sessionId == null) {
             return null;
         }
         byte[] key = getKey(sessionId.toString());
@@ -52,7 +54,7 @@ public class RedisSessionDao extends AbstractSessionDAO {
     }
 
     public void delete(Session session) {
-        if(session == null || session.getId() == null){
+        if (session == null || session.getId() == null) {
             return;
         }
         byte[] key = getKey(session.getId().toString());
@@ -62,10 +64,10 @@ public class RedisSessionDao extends AbstractSessionDAO {
     public Collection<Session> getActiveSessions() {
         Set<byte[]> keys = jedisUtil.keys(SHIRO_SESSION_PREFIX);
         Set<Session> sessions = new HashSet<Session>();
-        if(CollectionUtils.isEmpty(keys)){
+        if (CollectionUtils.isEmpty(keys)) {
             return sessions;
         }
-        for(byte[] key:keys){
+        for (byte[] key : keys) {
             Session session = (Session) SerializationUtils.deserialize(jedisUtil.get(key));
             sessions.add(session);
         }

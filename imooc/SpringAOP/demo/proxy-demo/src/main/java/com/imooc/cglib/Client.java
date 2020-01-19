@@ -9,7 +9,7 @@ import net.sf.cglib.proxy.Enhancer;
  */
 public class Client {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Enhancer enhancer = new Enhancer();
         enhancer.setSuperclass(RealSubject.class);
         enhancer.setCallback(new DemoMethodInterceptor());

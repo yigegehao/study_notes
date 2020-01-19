@@ -3,7 +3,7 @@ package com.imooc.pattern;
 /**
  * Created by cat on 2017-02-27.
  */
-public class Proxy implements Subject{
+public class Proxy implements Subject {
 
     private RealSubject realSubject;
 
@@ -14,12 +14,12 @@ public class Proxy implements Subject{
     @Override
     public void request() {
         System.out.println("before");
-        try{
+        try {
             realSubject.request();
-        }catch (Exception e){
-            System.out.println("ex:"+e.getMessage());
+        } catch (Exception e) {
+            System.out.println("ex:" + e.getMessage());
             throw e;
-        }finally {
+        } finally {
             System.out.println("after");
         }
     }

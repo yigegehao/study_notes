@@ -10,13 +10,13 @@ public class CountExample {
     public static void main(String[] args) {
         ExecutorService exec = Executors.newCachedThreadPool();
         final Semaphore semaphore = new Semaphore(threadTotal);
-        for(int index = 0;index < clientTotal;index++){
-            exec.execute(()->{
+        for (int index = 0; index < clientTotal; index++) {
+            exec.execute(() -> {
                 try {
                     semaphore.acquire();
                     add();
                     semaphore.release();
-                }catch (Exception e){
+                } catch (Exception e) {
 
                 }
             });

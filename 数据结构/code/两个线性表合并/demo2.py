@@ -9,25 +9,26 @@
 如果不等,则需要将listB游标后的元素都插入到listB中
 '''
 
-def union(listA,listB):
+
+def union(listA, listB):
     sizeB = len(listB)
     i = 0;
     j = 0;
-    while i<len(listA):
-        if j == sizeB: #listB遍历完
+    while i < len(listA):
+        if j == sizeB:  # listB遍历完
             break
         if listA[i] >= listB[j]:
-            listA.insert(i,listB[j])
+            listA.insert(i, listB[j])
             j = j + 1
         i = i + 1
     if j != sizeB:
         listA = listA + listB[j:]
     print(listA)
 
+
 stringA = input("请输入一串递增的数字,以,分隔\n").split(',')
 stringB = input("请输入另一串递增的数字,以,分隔\n").split(',')
-listA = list(map(int,stringA))
-listB = list(map(int,stringB))
+listA = list(map(int, stringA))
+listB = list(map(int, stringB))
 
-union(listA,listB)
-    
+union(listA, listB)

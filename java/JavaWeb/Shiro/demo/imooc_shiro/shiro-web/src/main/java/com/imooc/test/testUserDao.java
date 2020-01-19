@@ -7,7 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class testUserDao {
 
     @Test
-    public void testUserDao(){
+    public void testUserDao() {
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring/*");
         ac.getBean("jdbcTemplate");
     }

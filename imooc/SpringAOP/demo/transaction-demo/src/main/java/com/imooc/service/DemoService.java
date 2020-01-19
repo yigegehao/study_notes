@@ -21,9 +21,9 @@ public class DemoService {
     OperationLogDao operationLogDao;
 
     @Transactional
-    public void addUser(String name){
+    public void addUser(String name) {
         OperationLog log = new OperationLog();
-        log.setContent("create user:"+name);
+        log.setContent("create user:" + name);
         operationLogDao.save(log);
 
         User user = new User();

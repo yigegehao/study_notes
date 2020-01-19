@@ -1,43 +1,35 @@
 const Sequelize = require('sequelize')
 
-const sequelize = new Sequelize('test','root','',
-{
-    host:'127.0.0.1',
-    dialect:'mysql'
-});
-var User = sequelize.define('user',{
-    name:{
-        type:Sequelize.STRING
+const sequelize = new Sequelize('test', 'root', '',
+    {
+        host: '127.0.0.1',
+        dialect: 'mysql'
+    });
+var User = sequelize.define('user', {
+    name: {
+        type: Sequelize.STRING
     }
     ,
-    passwd:{
-        type:Sequelize.STRING
+    passwd: {
+        type: Sequelize.STRING
     }
-},{
-     sequelize,
-     modelName:'user'
+}, {
+    sequelize,
+    modelName: 'user'
 });
 
 // User.findAll().then(users => {
 //     var usersJson = JSON.stringify(users, null, 4);
 //     console.log(typeof users);
 //   });
-User.sync({ force: true }).then(()=>
+User.sync({force: true}).then(() = >
 {
     return User.create({
-        name:'x',
-        passwd:'x'
+        name: 'x',
+        passwd: 'x'
     });
-});
-
-
-
-
-
-
-
-
-
+})
+;
 
 
 // sequelize

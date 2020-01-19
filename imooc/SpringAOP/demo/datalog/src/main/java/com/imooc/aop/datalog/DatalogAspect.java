@@ -28,27 +28,28 @@ public class DatalogAspect {
     ActionDao actionDao;
 
     @Pointcut("execution(public * com.imooc.aop.dao.*.save*(..))")
-    public void save(){
+    public void save() {
 
     }
 
     @Pointcut("execution(public * com.imooc.aop.dao.*.delete*(..))")
-    public void delete(){
+    public void delete() {
 
     }
 
     /**
      * 1\判断是什么类型的操作,增加\删除\还是更新
-     *  增加/更新 save(Product),通过id区分是增加还是更新
-     *  删除delete(id)
+     * 增加/更新 save(Product),通过id区分是增加还是更新
+     * 删除delete(id)
      * 2\获取changeitem
-     *   (1)新增操作,before直接获取,after记录下新增之后的id
-     *   (2)更新操作,before获取操作之前的记录,after获取操作之后的记录,然后diff
-     *   (3)删除操作,before根据id取记录
+     * (1)新增操作,before直接获取,after记录下新增之后的id
+     * (2)更新操作,before获取操作之前的记录,after获取操作之后的记录,然后diff
+     * (3)删除操作,before根据id取记录
      * 3\保存操作记录
-     *    actionType
-     *    objectId
-     *    objectClass
+     * actionType
+     * objectId
+     * objectClass
+     *
      * @param pjp
      * @return
      * @throws Throwable
@@ -63,32 +64,32 @@ public class DatalogAspect {
         Action action = new Action();
         Long id = null;
         Object oldObj = null;
-        try{
+        try {
 
-            if("save".equals(method)){
+            if ("save".equals(method)) {
                 //insert or update
                 Object obj = pjp.getArgs()[0];
-                try{
-                    id = Long.valueOf(PropertyUtils.getProperty(obj,"id").toString());
-                }catch (Exception e){
+                try {
+                    id = Long.valueOf(PropertyUtils.getProperty(obj, "id").toString());
+                } catch (Exception e) {
                     //ignore
                 }
-                if(id == null){
+                if (id == null) {
                     actionType = ActionType.INSERT;
                     List<ChangeItem> changeItems = DiffUtil.getInsertChangeItems(obj);
                     action.getChanges().addAll(changeItems);
                     action.setObjectClass(obj.getClass().getName());
-                }else{
+                } else {
                     actionType = ActionType.UPDATE;
                     action.setObjectId(id);
-                    oldObj = DiffUtil.getObjectById(pjp.getTarget(),id);
+                    oldObj = DiffUtil.getObjectById(pjp.getTarget(), id);
                     action.setObjectClass(oldObj.getClass().getName());
                 }
 
-            }else if("delete".equals(method)){
+            } else if ("delete".equals(method)) {
                 id = Long.valueOf(pjp.getArgs()[0].toString());
                 actionType = ActionType.DELETE;
-                oldObj = DiffUtil.getObjectById(pjp.getTarget(),id);
+                oldObj = DiffUtil.getObjectById(pjp.getTarget(), id);
                 ChangeItem changeItem = DiffUtil.getDeleteChangeItem(oldObj);
                 action.getChanges().add(changeItem);
                 action.setObjectId(Long.valueOf(pjp.getArgs()[0].toString()));
@@ -99,14 +100,14 @@ public class DatalogAspect {
 
             //TODO AFTER OPERATION save action
             action.setActionType(actionType);
-            if(ActionType.INSERT == actionType){
+            if (ActionType.INSERT == actionType) {
                 //new id
-                Object newId = PropertyUtils.getProperty(returnObj,"id");
+                Object newId = PropertyUtils.getProperty(returnObj, "id");
                 action.setObjectId(Long.valueOf(newId.toString()));
 
-            }else if(ActionType.UPDATE == actionType){
-                Object newObj = DiffUtil.getObjectById(pjp.getTarget(),id);
-                List<ChangeItem> changeItems = DiffUtil.getChangeItems(oldObj,newObj);
+            } else if (ActionType.UPDATE == actionType) {
+                Object newObj = DiffUtil.getObjectById(pjp.getTarget(), id);
+                List<ChangeItem> changeItems = DiffUtil.getChangeItems(oldObj, newObj);
                 action.getChanges().addAll(changeItems);
             }
 
@@ -115,8 +116,8 @@ public class DatalogAspect {
 
             actionDao.save(action);
 
-        }catch (Exception e){
-            logger.error(e.getMessage(),e);
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
         }
 
         return returnObj;

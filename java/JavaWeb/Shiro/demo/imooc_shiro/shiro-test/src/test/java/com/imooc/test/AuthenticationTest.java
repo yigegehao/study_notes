@@ -12,11 +12,12 @@ public class AuthenticationTest {
     SimpleAccountRealm sar = new SimpleAccountRealm();
 
     @Before
-    public void addUser(){
-        sar.addAccount("x","x","admin");
+    public void addUser() {
+        sar.addAccount("x", "x", "admin");
     }
+
     @Test
-    public void testAuthentication(){
+    public void testAuthentication() {
         //1.构建SecurityManager环境
         DefaultSecurityManager dsm = new DefaultSecurityManager();
         dsm.setRealm(sar);
@@ -26,14 +27,14 @@ public class AuthenticationTest {
         Subject subject = SecurityUtils.getSubject();
 
         //3.模拟登陆
-        UsernamePasswordToken token = new UsernamePasswordToken("x","x");
+        UsernamePasswordToken token = new UsernamePasswordToken("x", "x");
         subject.login(token);
-        System.out.println("isAuthentication:"+subject.isAuthenticated());
+        System.out.println("isAuthentication:" + subject.isAuthenticated());
 
         subject.checkPermission("admin1");
 
         //4.模拟注销
         subject.logout();
-        System.out.println("isAuthentication:"+subject.isAuthenticated());
+        System.out.println("isAuthentication:" + subject.isAuthenticated());
     }
 }

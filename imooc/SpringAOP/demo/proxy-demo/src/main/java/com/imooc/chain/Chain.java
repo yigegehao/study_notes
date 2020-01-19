@@ -15,9 +15,9 @@ public class Chain {
         this.handlers = handlers;
     }
 
-    public void proceed(){
-        if(index >= handlers.size()){
-            return ;
+    public void proceed() {
+        if (index >= handlers.size()) {
+            return;
         }
         handlers.get(index++).execute(this);
     }

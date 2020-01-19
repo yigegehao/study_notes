@@ -10,13 +10,15 @@ import org.junit.Test;
 
 public class JdbcRealmTest {
     DruidDataSource dataSource = new DruidDataSource();
+
     {
         dataSource.setUrl("jdbc:mysql://localhost:32768/test");
         dataSource.setUsername("root");
         dataSource.setPassword("x");
     }
+
     @Test
-    public void testAuthentication(){
+    public void testAuthentication() {
         JdbcRealm jr = new JdbcRealm();
         jr.setDataSource(dataSource);
         //jr.setPermissionsLookupEnabled(true);
@@ -37,9 +39,9 @@ public class JdbcRealmTest {
         Subject subject = SecurityUtils.getSubject();
 
         //3.主体提交认证请求
-        UsernamePasswordToken token = new UsernamePasswordToken("x","x");
+        UsernamePasswordToken token = new UsernamePasswordToken("x", "x");
         subject.login(token);
-        System.out.println("isAuthenticated:"+subject.isAuthenticated());
+        System.out.println("isAuthenticated:" + subject.isAuthenticated());
 
         subject.checkRole("admin");
         //subject.checkPermission("admin");

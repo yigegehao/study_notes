@@ -15,34 +15,34 @@ import java.util.Date;
 @SpringBootTest
 public class DatalogApplicationTests {
 
-	@Autowired
-	ProductDao productDao;
+    @Autowired
+    ProductDao productDao;
 
-	@Test
-	public void testInsert() {
-		Product product = new Product();
-		product.setName("dell computer");
-		product.setOnlineTime(new Date());
-		product.setBuyPrice(new BigDecimal("29.5"));
-		product.setCategory("computer");
-		product.setDetail("this is a dell notebook");
-		product.setUpdateTime(new Date());
-		productDao.save(product);
-		System.out.println("new product id:"+product.getId());
-	}
+    @Test
+    public void testInsert() {
+        Product product = new Product();
+        product.setName("dell computer");
+        product.setOnlineTime(new Date());
+        product.setBuyPrice(new BigDecimal("29.5"));
+        product.setCategory("computer");
+        product.setDetail("this is a dell notebook");
+        product.setUpdateTime(new Date());
+        productDao.save(product);
+        System.out.println("new product id:" + product.getId());
+    }
 
-	@Test
-	public void testUpdate(){
-		Product product = productDao.findOne(1L);
-		product.setName("test-update");
-		product.setBuyPrice(new BigDecimal("23.5"));
-		product.setOnlineTime(new Date());
-		productDao.save(product);
-	}
+    @Test
+    public void testUpdate() {
+        Product product = productDao.findOne(1L);
+        product.setName("test-update");
+        product.setBuyPrice(new BigDecimal("23.5"));
+        product.setOnlineTime(new Date());
+        productDao.save(product);
+    }
 
-	@Test
-	public void testDelete(){
-		productDao.delete(1L);
-	}
+    @Test
+    public void testDelete() {
+        productDao.delete(1L);
+    }
 
 }

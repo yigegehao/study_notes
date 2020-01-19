@@ -1,0 +1,5 @@
+# 文件比对
+# file2独有的行
+grep -vwf file1 file2
+# file1,file2的并集
+grep -wf file1 file

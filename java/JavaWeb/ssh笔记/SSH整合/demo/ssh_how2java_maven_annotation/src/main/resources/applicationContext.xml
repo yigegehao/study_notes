@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	   xmlns:context="http://www.springframework.org/schema/context"
-	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!--开启包扫描与装配bean -->
-	<context:component-scan base-package="com.how2java">
-		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-	</context:component-scan>
+    <!--开启包扫描与装配bean -->
+    <context:component-scan base-package="com.how2java">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
 
 
-   <bean name="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-   		<property name="dataSource" ref="dataSource"/>
+    <bean name="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
 
-	   <!-- 开启实体类注解的扫描-->
-		<property name="packagesToScan" value="com.how2java.pojo"/>
+        <!-- 开启实体类注解的扫描-->
+        <property name="packagesToScan" value="com.how2java.pojo"/>
 
-   		<property name="hibernateProperties">
-   			<value>
-   				hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
+        <property name="hibernateProperties">
+            <value>
+                hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
                 hibernate.show_sql=true
                 hbm2ddl.auto=update
-				hibernate.current_session_context_class=org.springframework.orm.hibernate4.SpringSessionContext
-   			</value>
-   		</property>
-   </bean>
-   
-   <bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-   		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost:32768/how2java?characterEncoding=UTF-8" />
-        <property name="username" value="root" />
-        <property name="password" value="x" />
-   </bean>
-   
+                hibernate.current_session_context_class=org.springframework.orm.hibernate4.SpringSessionContext
+            </value>
+        </property>
+    </bean>
+
+    <bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:32768/how2java?characterEncoding=UTF-8"/>
+        <property name="username" value="root"/>
+        <property name="password" value="x"/>
+    </bean>
+
 </beans>

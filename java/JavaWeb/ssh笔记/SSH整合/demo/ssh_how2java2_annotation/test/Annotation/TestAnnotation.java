@@ -9,14 +9,14 @@ import com.sun.glass.ui.Application;
 
 public class TestAnnotation {
 
-	public static void main(String[] args) {
-		ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
-		ProductDAO productDAO = (ProductDAO) ac.getBean("productDAO");
-		Product p1 = new Product();
-		p1.setId(1);
-		p1.setName("x");
-		p1.setPrice((float)11.11);
-		productDAO.add(p1);
-	}
+    public static void main(String[] args) {
+        ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
+        ProductDAO productDAO = (ProductDAO) ac.getBean("productDAO");
+        Product p1 = new Product();
+        p1.setId(1);
+        p1.setName("x");
+        p1.setPrice((float) 11.11);
+        productDAO.add(p1);
+    }
 
 }

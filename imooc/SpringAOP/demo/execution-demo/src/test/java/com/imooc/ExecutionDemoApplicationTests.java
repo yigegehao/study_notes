@@ -14,35 +14,35 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class ExecutionDemoApplicationTests {
 
-	@Autowired
-	ProductService productService;
+    @Autowired
+    ProductService productService;
 
-	@Autowired
-	SubService subService;
+    @Autowired
+    SubService subService;
 
-	@Autowired
-	LogService logService;
+    @Autowired
+    LogService logService;
 
-	@Test
-	public void test() {
-		System.out.println("###begin test###");
-		productService.findById(1L);
-		productService.findByTwoArgs(1L,"hello");
-		productService.getName();
-		subService.demo();
-		try {
-			productService.exDemo();
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
-		}
-		logService.log();
-		productService.log();
-		logService.annoArg(new Product());
-	}
-	
-	@Test
-	public void myTest() throws IllegalAccessException {
-		//subService.demo();
-		productService.findById((long)1212);
-	}
+    @Test
+    public void test() {
+        System.out.println("###begin test###");
+        productService.findById(1L);
+        productService.findByTwoArgs(1L, "hello");
+        productService.getName();
+        subService.demo();
+        try {
+            productService.exDemo();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        logService.log();
+        productService.log();
+        logService.annoArg(new Product());
+    }
+
+    @Test
+    public void myTest() throws IllegalAccessException {
+        //subService.demo();
+        productService.findById((long) 1212);
+    }
 }

@@ -11,7 +11,7 @@ import org.junit.Test;
 public class CustomRealmTest {
 
     @Test
-    public void testAuthentication(){
+    public void testAuthentication() {
         CustomRealm cr = new CustomRealm();
         //加密
         HashedCredentialsMatcher matcher = new HashedCredentialsMatcher();
@@ -25,7 +25,7 @@ public class CustomRealmTest {
         SecurityUtils.setSecurityManager(dsm);
         Subject subject = SecurityUtils.getSubject();
         //3.主体提交认证请求
-        UsernamePasswordToken token = new UsernamePasswordToken("Mark","123456");
+        UsernamePasswordToken token = new UsernamePasswordToken("Mark", "123456");
         subject.login(token);
 
         System.out.println(subject.isAuthenticated());

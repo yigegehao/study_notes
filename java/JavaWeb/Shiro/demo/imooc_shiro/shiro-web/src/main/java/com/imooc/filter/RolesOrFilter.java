@@ -8,13 +8,13 @@ import javax.servlet.ServletResponse;
 
 public class RolesOrFilter extends AuthorizationFilter {
     protected boolean isAccessAllowed(ServletRequest servletRequest, ServletResponse servletResponse, Object o) throws Exception {
-        Subject subject = getSubject(servletRequest,servletResponse);
-        String[] roles= (String[]) o;
-        if(roles == null || roles.length == 0){
+        Subject subject = getSubject(servletRequest, servletResponse);
+        String[] roles = (String[]) o;
+        if (roles == null || roles.length == 0) {
             return true;
         }
-        for(String role:roles){
-            if(subject.hasRole(role)){
+        for (String role : roles) {
+            if (subject.hasRole(role)) {
                 return true;
             }
         }

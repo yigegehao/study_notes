@@ -8,7 +8,7 @@ import org.springframework.orm.hibernate5.HibernateTemplate;
 import java.util.List;
 
 
-public class ProductDAOImpl extends HibernateTemplate implements ProductDAO{
+public class ProductDAOImpl extends HibernateTemplate implements ProductDAO {
 
     private SessionFactory sessionFactory;
 
@@ -25,10 +25,10 @@ public class ProductDAOImpl extends HibernateTemplate implements ProductDAO{
     public List<Product> list() {
         return (List<Product>) find("from Product");
     }
- 
+
 
     public void add(Product p) {
         save(p);
     }
-     
+
 }

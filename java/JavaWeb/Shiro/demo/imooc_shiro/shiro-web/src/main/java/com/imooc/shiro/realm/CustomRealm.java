@@ -27,12 +27,12 @@ public class CustomRealm extends AuthorizingRealm {
         String username = (String) authenticationToken.getPrincipal();
         //2.通过用户名到数据库中获取凭证
         String password = getPasswordByUsername(username);
-        if (password == null){
+        if (password == null) {
             return null;
         }
-        SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(username,password,"customRealm");
+        SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(username, password, "customRealm");
         //authenticationInfo.setCredentialsSalt(ByteSource.Util.bytes("Mark"));
-        return  authenticationInfo;
+        return authenticationInfo;
     }
 
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {

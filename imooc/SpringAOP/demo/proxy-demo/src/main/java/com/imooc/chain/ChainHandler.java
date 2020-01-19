@@ -5,7 +5,7 @@ package com.imooc.chain;
  */
 public abstract class ChainHandler {
 
-    public void execute(Chain chain){
+    public void execute(Chain chain) {
         handleProcess();
         chain.proceed();
     }

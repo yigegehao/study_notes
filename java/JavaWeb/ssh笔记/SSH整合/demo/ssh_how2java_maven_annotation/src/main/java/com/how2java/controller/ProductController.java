@@ -19,17 +19,17 @@ public class ProductController {
     @RequestMapping("/listProduct")
     private String list(Model model) {
         List<Product> products = productService.list();
-        model.addAttribute("products",products);
+        model.addAttribute("products", products);
         return "list";
     }
- 
+
     public ProductService getProductService() {
         return productService;
     }
- 
+
     public void setProductService(ProductService productService) {
         this.productService = productService;
     }
 
- 
+
 }

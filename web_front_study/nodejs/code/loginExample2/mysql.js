@@ -1,11 +1,11 @@
 var mysql = require('mysql');
 
 var connection = mysql.createConnection({
-    host:'localhost',
-    user:'root',
-    password:'',
-    port:'3306',
-    database:'test'
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    port: '3306',
+    database: 'test'
 });
 
 //connection.connect();
@@ -22,4 +22,4 @@ var sql = 'select * from user';
 
 //connection.end();
 
-module.exports=connection;
+module.exports = connection;

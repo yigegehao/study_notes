@@ -11,13 +11,13 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class CacheDemoApplicationTests {
 
-	@Autowired
-	MenuService menuService;
+    @Autowired
+    MenuService menuService;
 
-	@Test
-	public void testCache() {
-		System.out.println("call:"+menuService.getMenuList());
-		System.out.println("call:"+menuService.getMenuList());
-	}
+    @Test
+    public void testCache() {
+        System.out.println("call:" + menuService.getMenuList());
+        System.out.println("call:" + menuService.getMenuList());
+    }
 
 }

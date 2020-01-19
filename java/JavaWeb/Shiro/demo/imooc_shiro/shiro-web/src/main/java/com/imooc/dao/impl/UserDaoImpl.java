@@ -28,7 +28,7 @@ public class UserDaoImpl implements UserDao {
                 return user;
             }
         });
-        if(CollectionUtils.isEmpty(list)){
+        if (CollectionUtils.isEmpty(list)) {
             return null;
         }
         return list.get(0);

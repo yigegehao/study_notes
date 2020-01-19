@@ -11,12 +11,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class TransactionDemoApplicationTests {
 
-	@Autowired
-	DemoService demoService;
+    @Autowired
+    DemoService demoService;
 
-	@Test
-	public void testWithoutTransaction() {
-		demoService.addUser("tom");
-	}
+    @Test
+    public void testWithoutTransaction() {
+        demoService.addUser("tom");
+    }
 
 }

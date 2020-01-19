@@ -14,12 +14,11 @@ public class JedisUtil {
     private JedisPool jedisPool;
 
 
-
-    private Jedis getResource(){
+    private Jedis getResource() {
         return jedisPool.getResource();
     }
 
-    public  byte[] get(byte[] key) {
+    public byte[] get(byte[] key) {
         Jedis jedis = getResource();
         return jedis.get(key);
     }
@@ -27,8 +26,8 @@ public class JedisUtil {
     public void expire(byte[] key, int i) {
         Jedis jedis = getResource();
         try {
-            jedis.expire(key,i);
-        }finally {
+            jedis.expire(key, i);
+        } finally {
             jedis.close();
         }
     }
@@ -36,9 +35,9 @@ public class JedisUtil {
     public byte[] set(byte[] key, byte[] value) {
         Jedis jedis = getResource();
         try {
-            jedis.set(key,value);
+            jedis.set(key, value);
             return value;
-        }finally {
+        } finally {
             jedis.close();
         }
     }
@@ -47,7 +46,7 @@ public class JedisUtil {
         Jedis jedis = getResource();
         try {
             jedis.del(key);
-        }finally {
+        } finally {
             jedis.close();
         }
     }
@@ -55,8 +54,8 @@ public class JedisUtil {
     public Set<byte[]> keys(String shiro_session_prefix) {
         Jedis jedis = getResource();
         try {
-            return jedis.keys((shiro_session_prefix+"*").getBytes());
-        }finally {
+            return jedis.keys((shiro_session_prefix + "*").getBytes());
+        } finally {
             jedis.close();
         }
     }

@@ -18,7 +18,7 @@ public class OperationLog {
     private Date createdAt;
 
     @PrePersist
-    public void settingTime(){
+    public void settingTime() {
         createdAt = new Date();
     }
 

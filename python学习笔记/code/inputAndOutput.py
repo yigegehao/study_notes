@@ -1,6 +1,6 @@
 # name = input("please input you name")
 # print(name)
-print(1024*768)
+print(1024 * 768)
 print('''hello,
 world''')
 

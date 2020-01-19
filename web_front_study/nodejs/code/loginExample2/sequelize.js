@@ -1,30 +1,30 @@
 const Sequelize = require('sequelize')
 
-const sequelize = new Sequelize('test','root','',
-{
-    host:'127.0.0.1',
-    dialect:'mysql'
-});
-var User = sequelize.define('user',{
-    name:{
-        type:Sequelize.STRING
+const sequelize = new Sequelize('test', 'root', '',
+    {
+        host: '127.0.0.1',
+        dialect: 'mysql'
+    });
+var User = sequelize.define('user', {
+    name: {
+        type: Sequelize.STRING
     }
     ,
-    passwd:{
-        type:Sequelize.STRING
+    passwd: {
+        type: Sequelize.STRING
     }
-},{
-     sequelize,
-     modelName:'user'
+}, {
+    sequelize,
+    modelName: 'user'
 });
 
 User.findOne({
-    where:{
-        name:'xx',
-        passwd:'x'
+    where: {
+        name: 'xx',
+        passwd: 'x'
     }
-}).then(function(obj){
-    if(obj){
+}).then(function (obj) {
+    if (obj) {
         console.log('aaaaaa')
     }
     console.log(obj);
@@ -49,15 +49,6 @@ User.findOne({
 //         passwd:'x'
 //     });
 // });
-
-
-
-
-
-
-
-
-
 
 
 // sequelize

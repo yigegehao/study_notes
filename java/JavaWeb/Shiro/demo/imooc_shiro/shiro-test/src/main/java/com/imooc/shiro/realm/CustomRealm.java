@@ -18,22 +18,24 @@ import java.util.Set;
 
 public class CustomRealm extends AuthorizingRealm {
 
-    Map<String,String> userMap = new HashMap<String, String>(16);
+    Map<String, String> userMap = new HashMap<String, String>(16);
+
     {
-        userMap.put("Mark","283538989cef48f3d7d8a1c1bdf2008f");
+        userMap.put("Mark", "283538989cef48f3d7d8a1c1bdf2008f");
         super.setName("customRealm");
     }
+
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         //1.从主体传过来的认证信息中获得用户名
         String username = (String) authenticationToken.getPrincipal();
         //2.通过用户名到数据库中获取凭证
         String password = getPasswordByUsername(username);
-        if (password == null){
+        if (password == null) {
             return null;
         }
-        SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(username,password,"customRealm");
+        SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(username, password, "customRealm");
         authenticationInfo.setCredentialsSalt(ByteSource.Util.bytes("Mark"));
-        return  authenticationInfo;
+        return authenticationInfo;
     }
 
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
@@ -63,7 +65,7 @@ public class CustomRealm extends AuthorizingRealm {
     }
 
     public static void main(String[] args) {
-        Md5Hash md5Hash = new Md5Hash("123456","Mark");
+        Md5Hash md5Hash = new Md5Hash("123456", "Mark");
         System.out.println(md5Hash.toString());
     }
 

@@ -25,22 +25,26 @@ public class AdviceAspectConfig {
     /******pointcut********/
 
     @Pointcut("@annotation(com.imooc.anno.AdminOnly) && within(com.imooc..*)")
-    public void matchAnno(){}
+    public void matchAnno() {
+    }
 
     @Pointcut("execution(* *..find*(Long)) && within(com.imooc..*) ")
-    public void matchLongArg(){}
+    public void matchLongArg() {
+    }
 
     @Pointcut("execution(public * com.imooc.service..*Service.*(..) throws java.lang.IllegalAccessException) && within(com.imooc..*)")
-    public void matchException(){}
+    public void matchException() {
+    }
 
     @Pointcut("execution(String com.imooc..*.*(..)) && within(com.imooc..*)")
-    public void matchReturn(){}
+    public void matchReturn() {
+    }
 
 
     /******advice********/
     @Before("matchLongArg() && args(productId)")
-    public void before(Long productId){
-        System.out.println("###before,get args:"+productId);
+    public void before(Long productId) {
+        System.out.println("###before,get args:" + productId);
     }
 //    @Around("matchException()")
 //    public java.lang.Object after(ProceedingJoinPoint joinPoint){

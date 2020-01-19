@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-	<bean name="productAction" class="com.how2java.action.ProductAction">
-		<property name="productService" ref="productServiceImpl"></property>
-	</bean>
+    <bean name="productAction" class="com.how2java.action.ProductAction">
+        <property name="productService" ref="productServiceImpl"></property>
+    </bean>
 
-	<bean name="productServiceImpl" class="com.how2java.service.impl.ProductServiceImpl">
-		<property name="productDAO" ref="productDAOImpl"></property>
-	</bean>
+    <bean name="productServiceImpl" class="com.how2java.service.impl.ProductServiceImpl">
+        <property name="productDAO" ref="productDAOImpl"></property>
+    </bean>
 
-	<bean name="productDAOImpl" class="com.how2java.dao.impl.ProductDAOImpl">
-		<property name="sessionFactory" ref="sessionFactory"></property>
-	</bean>
+    <bean name="productDAOImpl" class="com.how2java.dao.impl.ProductDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
 
-   <bean name="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
-   		<property name="dataSource" ref="dataSource"/>
+    <bean name="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
 
-		<property name="mappingResources">
-			<list>
-				<value>hibernate/Product.hbm.cfg</value>
-			</list>
-		</property>
-   		<property name="hibernateProperties">
-   			<value>
-   				hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
+        <property name="mappingResources">
+            <list>
+                <value>hibernate/Product.hbm.cfg</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <value>
+                hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
                 hibernate.show_sql=true
                 hbm2ddl.auto=update
-   			</value>
-   		</property>
-   </bean>
-   
-   <bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-   		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost:32768/how2java?characterEncoding=UTF-8" />
-        <property name="username" value="root" />
-        <property name="password" value="x" />
-   </bean>
-   
+            </value>
+        </property>
+    </bean>
+
+    <bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:32768/how2java?characterEncoding=UTF-8"/>
+        <property name="username" value="root"/>
+        <property name="password" value="x"/>
+    </bean>
+
 </beans>

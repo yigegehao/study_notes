@@ -10,9 +10,10 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository("productDAO")
-public class ProductDAOImpl implements ProductDAO{
+public class ProductDAOImpl implements ProductDAO {
 
-    @Autowired private SessionFactory sessionFactory;
+    @Autowired
+    private SessionFactory sessionFactory;
 
 
     public SessionFactory getSessionFactory() {
@@ -29,10 +30,10 @@ public class ProductDAOImpl implements ProductDAO{
         List list = query.list();
         return (List<Product>) list;
     }
- 
+
 
     public void add(Product p) {
         sessionFactory.getCurrentSession().save(p);
     }
-     
+
 }

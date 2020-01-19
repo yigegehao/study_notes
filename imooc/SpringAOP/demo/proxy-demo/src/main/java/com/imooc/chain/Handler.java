@@ -15,9 +15,9 @@ public abstract class Handler {
         this.sucessor = sucessor;
     }
 
-    public void execute(){
+    public void execute() {
         handleProcess();
-        if(sucessor != null){
+        if (sucessor != null) {
             sucessor.execute();
         }
     }

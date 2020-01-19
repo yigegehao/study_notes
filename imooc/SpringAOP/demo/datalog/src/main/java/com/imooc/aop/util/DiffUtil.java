@@ -24,22 +24,23 @@ public class DiffUtil {
 
     private static final Logger logger = LoggerFactory.getLogger(DiffUtil.class);
 
-    public static Object getObjectById(Object target,Object id) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    public static Object getObjectById(Object target, Object id) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         Method findMethod = target.getClass().getDeclaredMethod("findById", Long.class);
-        Object oldObj = findMethod.invoke(target,id);
+        Object oldObj = findMethod.invoke(target, id);
         return oldObj;
     }
 
     /**
      * 获取新增操作的change item
+     *
      * @param obj
      * @return
      */
-    public static List<ChangeItem> getInsertChangeItems(Object obj){
-        Map<String,String> valueMap = getBeanSimpleFieldValueMap(obj,true/*filter null*/);
-        Map<String,String> fieldCnNameMap = getFieldNameMap(obj.getClass());
+    public static List<ChangeItem> getInsertChangeItems(Object obj) {
+        Map<String, String> valueMap = getBeanSimpleFieldValueMap(obj, true/*filter null*/);
+        Map<String, String> fieldCnNameMap = getFieldNameMap(obj.getClass());
         List<ChangeItem> items = new ArrayList<>();
-        for(Map.Entry<String,String> entry : valueMap.entrySet()){
+        for (Map.Entry<String, String> entry : valueMap.entrySet()) {
             String fieldName = entry.getKey();
             String value = entry.getValue();
             ChangeItem changeItem = new ChangeItem();
@@ -56,10 +57,11 @@ public class DiffUtil {
 
     /**
      * 获取删除操作的change item
+     *
      * @param obj
      * @return
      */
-    public static ChangeItem getDeleteChangeItem(Object obj){
+    public static ChangeItem getDeleteChangeItem(Object obj) {
         ChangeItem changeItem = new ChangeItem();
         changeItem.setOldValue(JSON.toJSONString(obj));
         changeItem.setNewValue("");
@@ -68,6 +70,7 @@ public class DiffUtil {
 
     /**
      * 获取更新操作的change item
+     *
      * @param oldObj
      * @param newObj
      * @return
@@ -76,7 +79,7 @@ public class DiffUtil {
         Class cl = oldObj.getClass();
         List<ChangeItem> changeItems = new ArrayList<ChangeItem>();
         //获取字段中文名称
-        Map<String,String> fieldCnNameMap = getFieldNameMap(cl);
+        Map<String, String> fieldCnNameMap = getFieldNameMap(cl);
         try {
             BeanInfo beanInfo = Introspector.getBeanInfo(cl, Object.class);
 
@@ -109,6 +112,7 @@ public class DiffUtil {
 
     /**
      * 不同类型转字符串的处理
+     *
      * @param obj
      * @return
      */
@@ -126,15 +130,16 @@ public class DiffUtil {
 
     /**
      * 从注解读取中文名
+     *
      * @param clz
      * @return
      */
-    public static Map<String,String> getFieldNameMap(Class<?> clz){
-        Map<String,String> map = new HashMap<>();
+    public static Map<String, String> getFieldNameMap(Class<?> clz) {
+        Map<String, String> map = new HashMap<>();
         for (Field field : clz.getDeclaredFields()) {
             if (field.isAnnotationPresent(Datalog.class)) {
                 Datalog datalog = field.getAnnotation(Datalog.class);
-                map.put(field.getName(),datalog.name());
+                map.put(field.getName(), datalog.name());
             }
         }
         return map;
@@ -142,6 +147,7 @@ public class DiffUtil {
 
     /**
      * 将date类型转为字符串形式
+     *
      * @param date
      * @return
      */
@@ -155,6 +161,7 @@ public class DiffUtil {
     /**
      * 获取bean的fieldname和value
      * 只获取简单类型，不获取复杂类型，包括集合
+     *
      * @param bean
      * @return
      */
@@ -174,8 +181,8 @@ public class DiffUtil {
                 if (filterNull && value == null)
                     continue;
                 if (isBaseDataType(fieldType)) {
-                    String strValue = getFieldStringValue(fieldType,value);
-                    map.put(name,strValue);
+                    String strValue = getFieldStringValue(fieldType, value);
+                    map.put(name, strValue);
                 }
 
             }
@@ -187,19 +194,21 @@ public class DiffUtil {
 
     /**
      * 自定义不同类型的string值
+     *
      * @param type
      * @return
      */
-    public static String getFieldStringValue(Class type,Object value){
-        if(type.equals(Date.class)){
+    public static String getFieldStringValue(Class type, Object value) {
+        if (type.equals(Date.class)) {
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            return formatter.format((Date)value);
+            return formatter.format((Date) value);
         }
         return value.toString();
     }
 
     /**
      * 判断一个类是否为基本数据类型或包装类，或日期。
+     *
      * @param clazz 要判断的类。
      * @return true 表示为基本数据类型。
      */

@@ -16,13 +16,13 @@ public class DemoController {
     }
 
     @RequestMapping("/common")
-    public String commonAccess(){
+    public String commonAccess() {
         return "only login can view";
     }
 
     @RequestMapping("/admin")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public String admin(){
+    public String admin() {
         return "only admin can access";
     }
 }

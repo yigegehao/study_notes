@@ -13,44 +13,45 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class UserController {
 
-    @RequestMapping(value = "/subLogin",method = RequestMethod.POST,
-    produces = "application/json;charset=utf-8")
+    @RequestMapping(value = "/subLogin", method = RequestMethod.POST,
+            produces = "application/json;charset=utf-8")
     @ResponseBody
-    public String subLogin(User user){
+    public String subLogin(User user) {
         System.out.println(user.getUsername());
         Subject subject = SecurityUtils.getSubject();
-        UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(),user.getPassword());
+        UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(), user.getPassword());
         try {
             subject.login(token);
-        }catch (Exception e){
-            return(e.getMessage());
+        } catch (Exception e) {
+            return (e.getMessage());
         }
         //System.out.println(subject.hasRole("admin"));
         return "登陆成功";
     }
 
     //@RequiresRoles("admin")
-    @RequestMapping(value = "/testRole",method = RequestMethod.GET)
+    @RequestMapping(value = "/testRole", method = RequestMethod.GET)
     @ResponseBody
-    public String testRoles(){
+    public String testRoles() {
         return "testRole success";
     }
 
     //@RequiresRoles("admin1")
-    @RequestMapping(value = "/testRole1",method = RequestMethod.GET)
+    @RequestMapping(value = "/testRole1", method = RequestMethod.GET)
     @ResponseBody
-    public String testRole1(){
+    public String testRole1() {
         return "testRole success";
     }
 
-    @RequestMapping(value = "/testPerm",method = RequestMethod.GET)
+    @RequestMapping(value = "/testPerm", method = RequestMethod.GET)
     @ResponseBody
-    public String testPerm(){
+    public String testPerm() {
         return "testRole success";
     }
-    @RequestMapping(value = "/testPerm1",method = RequestMethod.GET)
+
+    @RequestMapping(value = "/testPerm1", method = RequestMethod.GET)
     @ResponseBody
-    public String testPerm1(){
+    public String testPerm1() {
         return "testRole success";
     }
 
