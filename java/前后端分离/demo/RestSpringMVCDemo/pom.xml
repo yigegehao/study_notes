@@ -43,7 +43,7 @@
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
-            <version>3.3.1</version>
+            <version>3.5.6</version>
         </dependency>
         <!-- mybatis与Spring整合核心包 -->
         <dependency>
